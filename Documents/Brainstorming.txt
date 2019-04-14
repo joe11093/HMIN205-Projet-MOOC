@@ -1,0 +1,39 @@
+Features
+=========
+
+Des cours en plusieurs matieres pour chaque classe
+Formats d'apprentissage variés: Video, Fiche de cours, fiches de revision
+Formats de test: QCM, Question Reponses.
+
+Types d'utilisateurs
+=====================
+	Elève
+	------
+		-S'inscrit en saisissant ses informations
+		-Choisit son année
+		-Choisit une formule(# De cours)
+		-Choisit le mode de formation(Progression ou accompagnée)
+		-Payment par CB ou Prelevement
+		-Accés au cours
+		-Accés au tests
+		-Reçoit des conseils géneraux
+		-Reçoit des conseils adaptés
+		-Accés au chat s'il a le plan
+		-Accés à tout son historique
+
+	Parent
+	------
+		-S'inscrit
+		-Inscrit des elèves qu'il parraine
+		-Payment par CB ou Prelevement
+		-Accés au profile de ses etudiants 
+		-Accés à l'historique de chaque élève
+		-Accés au temps de connection de chaque élève
+		-Peut definir des moments de rappels pour chaque élève
+		-Accés au conseils de chaque élève
+
+Modes de connection
+====================
+Online: Accés à tout
+Offline: Accés aux données locales seulement. L'appli va synchronizer l'élève se connecte
+Deconnecté(logged out): Apperçu de l'appli, utlisation limitée
