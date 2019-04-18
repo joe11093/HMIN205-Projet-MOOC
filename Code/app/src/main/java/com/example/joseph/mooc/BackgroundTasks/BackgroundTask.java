@@ -1,8 +1,10 @@
-package com.example.joseph.mooc;
+package com.example.joseph.mooc.BackgroundTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import com.example.joseph.mooc.Helper.DBMooc;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -13,6 +15,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+
+// FOR TESTS ONLY
 
 /**
  * Created by josep on 4/16/2019.
@@ -25,7 +29,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
     protected String doInBackground(String... params) {
         //127.0.0.1/moooc-server ?
-        String reg_url="http://192.168.1.47/mooc-server/register.php";
+        String reg_url= DBMooc.baseUrl + "register.php";
         String method = params[0];
         if(method.equals("registerUser")){
             String id = params[1];

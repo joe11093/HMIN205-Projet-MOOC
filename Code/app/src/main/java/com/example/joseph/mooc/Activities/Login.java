@@ -1,10 +1,14 @@
-package com.example.joseph.mooc;
+package com.example.joseph.mooc.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.joseph.mooc.BackgroundTasks.BackgroundTask;
+import com.example.joseph.mooc.R;
+
+// FOR TESTS ONLY
 public class Login extends AppCompatActivity {
 
     EditText e_id;
