@@ -1,0 +1,5 @@
+Utiliser les capteurs
+Utiliser les strings au lieu de mettre le texte directement
+Utiliser les Shared preferences
+Utiliser des Fragments
+Utiliser les menus
