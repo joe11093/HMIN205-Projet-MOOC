@@ -4,3 +4,6 @@ Utiliser les Shared preferences
 Utiliser des Fragments
 Utiliser les menus
 Utiliser material
+Creer un theme
+Login with facebook?
+Add Back button to all activities
