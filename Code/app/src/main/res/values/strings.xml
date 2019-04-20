@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">MOOC</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="username">Username</string>
+    <string name="emailaddress">Email Address</string>
+    <string name="password">Password</string>
+    <string name="passwordconfirm">Confirm Password</string>
+    <string name="dateofbirth">Date of Birth</string>
+    <string name="country">Country</string>
+    <string name="IAmA">I am a</string>
+    <string name="parent">Parent</string>
+    <string name="student">Student</string>
+    <string name="btnNext">Next</string>
+    <string name="welcomeTitle">Welcome to MOOC</string>
+    <string name="slogan">For a successful academic life</string>
+    <string name="login">Log In</string>
+    <string name="signup">Sign Up</string>
 </resources>
