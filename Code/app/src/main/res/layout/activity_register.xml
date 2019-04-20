@@ -29,7 +29,9 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btnSignupUsertypeNext"
         app:layout_constraintStart_toStartOf="@+id/btnSignupUsertypeNext"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:checkedButton="@+id/btnParent"
+        >
 
         <RadioButton
             android:id="@+id/btnParent"
@@ -38,7 +40,7 @@
             android:paddingTop="10sp"
             android:text="@string/parent"
             android:textSize="30sp"
-
+            android:checked="true"
             />
 
         <RadioButton
@@ -58,5 +60,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RGUserType" />
+        app:layout_constraintTop_toBottomOf="@+id/RGUserType"
+        android:onClick="redirectRegistration"
+        />
 </android.support.constraint.ConstraintLayout>
