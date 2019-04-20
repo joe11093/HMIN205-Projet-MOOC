@@ -6,7 +6,7 @@ package com.example.joseph.mooc.Helper;
  */
 
 public final class DBMooc {
-    public final static String baseUrl = "http://172.24.67.243/mooc-server/";
+    public final static String baseUrl = "http://192.168.1.47/mooc-server/";
 
     private DBMooc(){
         //constructor
