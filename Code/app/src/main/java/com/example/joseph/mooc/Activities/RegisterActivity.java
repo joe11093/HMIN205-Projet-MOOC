@@ -37,7 +37,8 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else
             if(idchecked == R.id.btnStudent){
-
+                Intent intent = new Intent(this, RegisterStudentActivity.class);
+                startActivity(intent);
             }
     }
 }

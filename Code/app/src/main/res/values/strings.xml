@@ -17,4 +17,5 @@
     <string name="slogan">For a successful academic life</string>
     <string name="login">Log In</string>
     <string name="signup">Sign Up</string>
+    <string name="class_label">Class</string>
 </resources>

@@ -24,7 +24,8 @@
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.RegisterParentActivity" />
-        <activity android:name=".BackgroundTasks.SignupBackgroundTask"></activity>
+        <activity android:name=".BackgroundTasks.SignupBackgroundTask" />
+        <activity android:name=".Activities.RegisterStudentActivity"></activity>
     </application>
 
 </manifest>

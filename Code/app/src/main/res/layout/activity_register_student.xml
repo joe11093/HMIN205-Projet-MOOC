@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.joseph.mooc.Activities.RegisterParentActivity">
-
+    tools:context="com.example.joseph.mooc.Activities.RegisterStudentActivity">
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
@@ -21,7 +20,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/parentSignupFirstName"
+                android:id="@+id/studentSignupFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -31,7 +30,7 @@
                 tools:layout_editor_absoluteY="70dp" />
 
             <EditText
-                android:id="@+id/parentSignupLasttName"
+                android:id="@+id/studentSignupLasttName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -41,7 +40,7 @@
                 tools:layout_editor_absoluteY="116dp" />
 
             <EditText
-                android:id="@+id/parentSignupDOB"
+                android:id="@+id/studentSignupDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -49,7 +48,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/parentSignupEmail"
+                android:id="@+id/studentSignupEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -57,7 +56,7 @@
                 android:inputType="textEmailAddress" />
 
             <EditText
-                android:id="@+id/parentSignupPassword"
+                android:id="@+id/studentSignupPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -65,7 +64,7 @@
                 android:inputType="textPassword" />
 
             <EditText
-                android:id="@+id/parentSignupCity"
+                android:id="@+id/studentSignupCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -73,15 +72,28 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/parentSignupCountry"
+                android:id="@+id/studentSignupCountry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/country"
                 android:inputType="textPersonName" />
 
+
+            <TextView
+                android:id="@+id/studentSignupClassSpinnerLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/class_label" />
+
+            <Spinner
+                android:id="@+id/studentSignupClassSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
             <Button
-                android:id="@+id/parentSignupSubmit"
+                android:id="@+id/studentSignupSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="signup"
@@ -89,5 +101,4 @@
         </LinearLayout>
 
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

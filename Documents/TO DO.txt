@@ -8,3 +8,4 @@ Creer un theme
 Login with facebook?
 Add Back button to all activities
 Add date picker
+Add checks on the signup form 
