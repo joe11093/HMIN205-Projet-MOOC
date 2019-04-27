@@ -9,6 +9,8 @@ import com.example.joseph.mooc.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    //CHECK SHARED PREFERENCES
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

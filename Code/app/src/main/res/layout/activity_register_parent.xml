@@ -78,6 +78,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:hint="@string/country" />
+            <Spinner
+                android:id="@+id/childrenNumberSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/parentSignupSubmit"

@@ -2,6 +2,7 @@ package com.example.joseph.mooc.BackgroundTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.joseph.mooc.Helper.DBMooc;
@@ -27,13 +28,20 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
     Context ctx;
 
+    public BackgroundTask(Context ctx) {
+        super();
+        this.ctx = ctx;
+    }
+
     protected String doInBackground(String... params) {
         //127.0.0.1/moooc-server ?
         String reg_url= DBMooc.baseUrl + "register.php";
         String method = params[0];
-        if(method.equals("registerUser")){
+        Log.d("backgroundtask", "backgroundtask");
+        if(method.equals("login")){
             String id = params[1];
             String firstname = params[2];
+            Log.d("methond", method);
 
             try {
                 URL url = new URL(reg_url);
@@ -53,6 +61,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
                 InputStream instream = httpURLConnection.getInputStream();
                 instream.close();
+                Log.d("return", "return");
                 return "Registration Successful";
 
             } catch (MalformedURLException e) {
@@ -65,11 +74,6 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
         return null;
     }
 
-    public BackgroundTask(Context ctx) {
-        super();
-        this.ctx = ctx;
-    }
-
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -78,6 +82,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+        Log.d("loginresult", result);
         Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
     }
 
