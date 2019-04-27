@@ -1,6 +1,6 @@
 Utiliser les capteurs
 Utiliser les strings au lieu de mettre le texte directement
-Utiliser les Shared preferences
+Utiliser les Shared preferences pour implementer le Always logged in
 Utiliser des Fragments (Pour le sign up par exemple)
 Utiliser les menus
 Utiliser material
@@ -8,3 +8,10 @@ Creer un theme
 Login with facebook?
 Add Back button to all activities
 Add date picker
+
+===========
+LOGIN
+===========
+
+* When the app is launched, go to a "Splash screen". Check SharedPreference. If user is logged in, go to his profile. If user is not logged in, go to the login/sign up page.
+
