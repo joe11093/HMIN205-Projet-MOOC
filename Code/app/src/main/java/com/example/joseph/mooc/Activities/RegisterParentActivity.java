@@ -32,13 +32,18 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
     TextView testTxt;
     Parent parent;
     ArrayList<Student> students = new ArrayList<Student>();
-    Intent intent;
+    Intent intentStudentRegistration, intentFinishRegistration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_parent);
 
+        //set up intents
+        intentStudentRegistration = new Intent(this, RegisterStudentActivity.class);
+        intentFinishRegistration = new Intent(this, FinishRegistrationActivity.class);
+
+        //getting fields
         firstname = findViewById(R.id.parentSignupFirstName);
         lastname = findViewById(R.id.parentSignupLasttName);
         dob = findViewById(R.id.parentSignupDOB);
@@ -99,23 +104,31 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
 
 
             if(nbchildren > 0){
-                intent = new Intent(this, RegisterStudentActivity.class);
-                intent.putExtra("parent", parent);
-                intent.putExtra("numberChildren", nbchildren);
+                Log.d("nbchildrenGT0", ""+nbchildren);
+                intentStudentRegistration.putExtra("parent", parent);
+
+                //delete this part once it works
+                Parent parentfromintent = (Parent)intentStudentRegistration.getExtras().get("parent");
+                Log.d("studentregputextra", parentfromintent.getEmailaddress());
                 //loop over number of children
                 //open children sign up activity
                 //get children and add it to intent
                 //once loop is over, add the parent and every child to the database
                 //and go to Confirmation activity
-                for(int i = 0; i < nbchildren; i++){
-                    startActivityForResult(intent, 1);
-                }
-                //add the students arraylist to the intent
-                this.intent.putExtra("studentList", students);
 
+                //for(int i = 0; i < nbchildren; i++){
+                    //Log.d("startactivityloop", ""+i);
+                    startActivityForResult(intentStudentRegistration, 1);
+                //}
+                //add the students arraylist to the finish registration intent
+                //this.intentFinishRegistration.putExtra("parent", parent);
+                //this.intentFinishRegistration.putExtra("studentList", students);
+                //start finish registration activity
+                //startActivity(intentFinishRegistration);
 
             }
             else{
+                Log.d("else", "else, number children <= 0");
                 //finish registration process
             }
         }
@@ -125,7 +138,8 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
 
         Toast.makeText(this, "child info was registered", Toast.LENGTH_LONG).show();
         Bundle bundle = returnData.getExtras();
-
+        Student student = (Student) bundle.get("student");
+        Log.d("registeredstudent", student.getFirstname());
         if(resultCode == RESULT_OK){
             students.add((Student)bundle.get("student"));
         }

@@ -24,11 +24,12 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
     String fnamestr, lnamestr, dobstr, emailstr, passstr,citystr,countrystr;
     Spinner anneeSpnr;
     TextView testTextView;
-
+    Parent parent;
     Student student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("studentregisteroncreate", "In oncreate of register student activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_student);
         this.fname = findViewById(R.id.studentSignupFirstName);
@@ -47,6 +48,12 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
 
         AnneeScolaireArrayAdapter adapter = new AnneeScolaireArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, annee_list);
         anneeSpnr.setAdapter(adapter);
+
+        //get parent from the intent
+        Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        Parent parent = (Parent) bundle.get("parent");
+        Log.d("parentinstudentactivity", parent.getEmailaddress());
     }
     public void signup(View view) {
         fnamestr = fname.getText().toString();
@@ -58,10 +65,7 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         countrystr = country.getText().toString();
         AnneeScolaire chosen_anne = (AnneeScolaire) anneeSpnr.getSelectedItem();
 
-        //get parent from the intent
-        Intent i = getIntent();
-        Bundle bundle = i.getExtras();
-        Parent parent = (Parent) bundle.get("parent");
+
         if(parent == null){
             //case where an individual student is signing up, not a student being signed up by his parent
         }
