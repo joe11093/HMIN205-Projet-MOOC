@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.joseph.mooc.Activities.RegisterParentActivity">
+
+    <TextView
+        android:id="@+id/studentregTesttx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/studentSignupFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/firstname"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="70dp" />
+
+            <EditText
+                android:id="@+id/studentSignupLasttName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/lastname"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="116dp" />
+
+            <EditText
+                android:id="@+id/studentSignupDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/dateofbirth"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/studentSignupEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/emailaddress"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/studentSignupPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/studentSignupCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/city"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/studentSignupCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/country"
+                android:inputType="textPersonName" />
+
+            <Spinner
+                android:id="@+id/studentSignupAnneeScolaireSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/parentSignupSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="signup"
+                android:text="@string/signup" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
