@@ -6,11 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.example.joseph.mooc.Activities.RegisterParentActivity">
 
+    <TextView
+        android:id="@+id/testtx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
+
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,8 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
                 android:hint="@string/firstname"
+                android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="69dp"
                 tools:layout_editor_absoluteY="70dp" />
 
@@ -32,8 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
                 android:hint="@string/lastname"
+                android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="69dp"
                 tools:layout_editor_absoluteY="116dp" />
 
@@ -42,18 +53,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
                 android:hint="@string/dateofbirth"
-                />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/parentSignupEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress"
                 android:hint="@string/emailaddress"
-                />
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/parentSignupPassword"
@@ -68,28 +77,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="@string/city" />
+                android:hint="@string/city"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/parentSignupCountry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="@string/country" />
+                android:hint="@string/country"
+                android:inputType="textPersonName" />
+
             <Spinner
                 android:id="@+id/childrenNumberSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/parentSignupSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/signup"
                 android:onClick="signup"
-                />
+                android:text="@string/signup" />
         </LinearLayout>
 
     </ScrollView>

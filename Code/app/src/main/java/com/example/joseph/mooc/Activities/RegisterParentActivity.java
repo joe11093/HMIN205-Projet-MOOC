@@ -1,6 +1,7 @@
 package com.example.joseph.mooc.Activities;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,20 +10,29 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.joseph.mooc.BackgroundTasks.CheckObjectExistInDbAsyncTask;
+import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.Models.Parent;
+import com.example.joseph.mooc.Models.Student;
 import com.example.joseph.mooc.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class RegisterParentActivity extends AppCompatActivity {
+public class RegisterParentActivity extends AppCompatActivity implements Callback {
 
     EditText firstname, lastname, dob, emailaddress, password, city, country;
     Spinner numberofchildrenSpinner;
+    TextView testTxt;
+    Parent parent;
+    ArrayList<Student> students = new ArrayList<Student>();
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,7 @@ public class RegisterParentActivity extends AppCompatActivity {
         city = findViewById(R.id.parentSignupCity);
         country = findViewById(R.id.parentSignupCountry);
 
+        testTxt = findViewById(R.id.testtx);
         //fill spinner with possible number of children
         numberofchildrenSpinner = (Spinner) findViewById(R.id.childrenNumberSpinner);
         Integer[] numbers = new Integer[]{1,2,3,4,5,6,7,8,9,10};
@@ -57,11 +68,11 @@ public class RegisterParentActivity extends AppCompatActivity {
 
 
         //creating parent object
-        Parent p = new Parent(fname, lname, datebirth, email, pass, citystring, countrystring);
+        parent = new Parent(fname, lname, datebirth, email, pass, citystring, countrystring);
 
         //check to see if parent's email exists in DB
         CheckObjectExistInDbAsyncTask existtask = new CheckObjectExistInDbAsyncTask(this);
-        existtask.execute(p);
+        existtask.execute(parent);
         Log.d("afterexecute", "afterexecute");
         //if yes, add message in the sign up screen
 
@@ -70,11 +81,53 @@ public class RegisterParentActivity extends AppCompatActivity {
             //insert Parent into database
             //Take parent to sucess screen informing him that an email is gonna be sent
         //if number of children > 0
-        //loop over number of children
-            //open children sign up activity
-            //get children and add it to intent
-        //once loop is over, add the parent and every child to the database
-        //and go to Confirmation activity
 
+
+    }
+
+    @Override
+    public void processData(String data) {
+        //Toast.makeText(this, "Result: " + data, Toast.LENGTH_LONG).show();
+        //Log.d("datafromasync", data);
+        if(data.equals("true")){
+            this.testTxt.setText("Your email is already in use");
+        }
+        else{
+            this.testTxt.setText("You can sign up");
+            int nbchildren = (int) this.numberofchildrenSpinner.getSelectedItem();
+            Log.d("numchildren", ""+nbchildren);
+
+
+            if(nbchildren > 0){
+                intent = new Intent(this, RegisterStudentActivity.class);
+                intent.putExtra("parent", parent);
+                intent.putExtra("numberChildren", nbchildren);
+                //loop over number of children
+                //open children sign up activity
+                //get children and add it to intent
+                //once loop is over, add the parent and every child to the database
+                //and go to Confirmation activity
+                for(int i = 0; i < nbchildren; i++){
+                    startActivityForResult(intent, 1);
+                }
+                //add the students arraylist to the intent
+                this.intent.putExtra("studentList", students);
+
+
+            }
+            else{
+                //finish registration process
+            }
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent returnData) {
+
+        Toast.makeText(this, "child info was registered", Toast.LENGTH_LONG).show();
+        Bundle bundle = returnData.getExtras();
+
+        if(resultCode == RESULT_OK){
+            students.add((Student)bundle.get("student"));
+        }
     }
 }
