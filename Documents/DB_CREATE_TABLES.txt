@@ -92,4 +92,4 @@ CREATE TABLE STUDENT_MATIERE_ANNEE(
 
 
 
-INSERT INTO `utilisateur` (`id`, `firstname`, `lastname`, `dateofbirth`, `email`, `city`, `country`, `type`) VALUES (NULL, 'joseph', 'saba', '1993-10-01', 'josephsaba_93@hotmail.com','password', 'Bkarzala', 'Lebanon', 'parent');
+INSERT INTO utilisateur (firstname, lastname, dateofbirth, email, password, city, country, type) VALUES ('joseph', 'lastname', '1993-10-01', 'josephsaba_93@hotmail.com', 'password', 'Bakarzala', 'Lebanon', 'parent');
