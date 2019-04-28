@@ -5,5 +5,5 @@ package com.example.joseph.mooc.Interfaces;
  */
 
 public interface Callback {
-    void processData(String date);
+    void processData(String data);
 }
