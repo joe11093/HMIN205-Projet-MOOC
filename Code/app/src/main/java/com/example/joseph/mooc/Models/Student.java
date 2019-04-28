@@ -1,12 +1,13 @@
 package com.example.joseph.mooc.Models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by josep on 4/27/2019.
  */
 
-public class Student extends User {
+public class Student extends User implements Serializable {
 
     private AnneeScolaire anneeScolaire;
     Parent parent;
