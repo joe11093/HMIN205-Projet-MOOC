@@ -30,4 +30,9 @@ public class AnneeScolaire {
     public void setAnneescolaire(String anneescolaire) {
         this.anneescolaire = anneescolaire;
     }
+
+    @Override
+    public String toString() {
+        return this.anneescolaire.toString();
+    }
 }
