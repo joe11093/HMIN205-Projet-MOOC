@@ -9,6 +9,12 @@ Login with facebook?
 Add Back button to all activities
 Add date picker
 
+=========
+DATABASE
+=========
+Enforece foreign key relation
+
+
 ===========
 LOGIN
 ===========
