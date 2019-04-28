@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.joseph.mooc.Helper.DBMooc;
+import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.Models.Parent;
 import com.example.joseph.mooc.Models.Student;
 import com.example.joseph.mooc.Models.User;
@@ -34,10 +35,11 @@ import java.nio.charset.Charset;
 
 public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, String> {
 
-    Context ctx;
-
-    public CheckObjectExistInDbAsyncTask(Context ctx) {
-        this.ctx = ctx;
+    //Context ctx;
+    Callback cb;
+    public CheckObjectExistInDbAsyncTask(Callback cb) {
+        //this.ctx = ctx;
+        this.cb = cb;
     }
 
 
@@ -114,8 +116,8 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
     protected void onPostExecute(String exists) {
 
         super.onPostExecute(exists);
-        Log.d("onpostexecute", exists);
-        Toast.makeText(ctx, "Result: " + exists, Toast.LENGTH_LONG).show();
-       
+        //Log.d("onpostexecute", exists);
+        //Toast.makeText(ctx, "Result: " + exists, Toast.LENGTH_LONG).show();
+        cb.processData(exists);
     }
 }
