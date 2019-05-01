@@ -22,6 +22,14 @@ public class User {
 
     }
 
+    //to return from the login async activity
+    public User(int id, String firstname, String emailaddress, String type) {
+        this.id = id;
+        this.firstname = firstname;
+        this.emailaddress = emailaddress;
+        this.type = type;
+    }
+
     //constructor with ID
     public User(int id, String firstname, String lastname, String dateofbirth, String emailaddress, String password, String city, String country, String type) {
         this.id = id;
