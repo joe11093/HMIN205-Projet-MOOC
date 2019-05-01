@@ -17,4 +17,6 @@
     <string name="slogan">For a successful academic life</string>
     <string name="login">Log In</string>
     <string name="signup">Sign Up</string>
+    <string name="logout">Log out</string>
+    <string name="logoutMessage">You were logged out</string>
 </resources>
