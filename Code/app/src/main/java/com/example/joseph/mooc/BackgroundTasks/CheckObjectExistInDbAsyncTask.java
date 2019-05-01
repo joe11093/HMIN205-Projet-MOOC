@@ -109,7 +109,7 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
                 e.printStackTrace();
             }
     }
-        return "hi";
+        return "no_result";
     }
 
     @Override
