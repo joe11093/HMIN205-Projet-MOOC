@@ -37,6 +37,7 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
 
     //Context ctx;
     Callback cb;
+
     public CheckObjectExistInDbAsyncTask(Callback cb) {
         //this.ctx = ctx;
         this.cb = cb;
@@ -49,7 +50,7 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
         String type;
 
         Object toCheck = params[0];
-        if(toCheck.getClass() == Parent.class || toCheck.getClass() == Student.class){
+        if(toCheck.getClass() == Parent.class || toCheck.getClass() == Student.class || toCheck.getClass() == User.class){
             //set type, cast to User and retrieve search criteria
             type = "user";
             User usersearch = (User) toCheck;
@@ -68,6 +69,7 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
                 //creating the JSON
                 JSONObject searchinfo = new JSONObject();
 
+                //nettoyer?
                 searchinfo.put("firstname", usersearch.getFirstname());
                 searchinfo.put("lastname", usersearch.getLastname());
                 searchinfo.put("dob", usersearch.getDateofbirth());

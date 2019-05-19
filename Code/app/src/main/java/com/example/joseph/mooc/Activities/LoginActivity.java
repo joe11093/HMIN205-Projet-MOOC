@@ -73,9 +73,9 @@ public class LoginActivity extends AppCompatActivity implements Callback {
                 data = data.replace("}", "");
                 String[] array = data.split(",");
                 String id = array[0].split(":")[1];
-                String firstname = array[2].split(":")[1];
+                String firstname = array[1].split(":")[1];
                 String email = array[2].split(":")[1];
-                String type = array[2].split(":")[1];
+                String type = array[3].split(":")[1];
                 Log.d("splitarray", id);
                 Log.d("splitarray", firstname);
                 Log.d("splitarray", email);
