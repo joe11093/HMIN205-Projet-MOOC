@@ -12,7 +12,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.joseph.mooc.BackgroundTasks.CheckObjectExistInDbAsyncTask;
+import com.example.joseph.mooc.BackgroundTasks.SignupBackgroundTask;
 import com.example.joseph.mooc.Helper.AnneeScolaireArrayAdapter;
+import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.Models.AnneeScolaire;
 import com.example.joseph.mooc.Models.Parent;
@@ -24,12 +26,12 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
     String fnamestr, lnamestr, dobstr, emailstr, passstr,citystr,countrystr;
     Spinner anneeSpnr;
     TextView testTextView;
-    Parent parent;
+    Parent parent = null;
     Student student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("studentregisteroncreate", "In oncreate of register student activity");
+        Log.d("StudentRegistration", "In oncreate of register student activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_student);
         this.fname = findViewById(R.id.studentSignupFirstName);
@@ -52,8 +54,13 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         //get parent from the intent
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
-        Parent parent = (Parent) bundle.get("parent");
-        Log.d("parentinstudentactivity", parent.getEmailaddress());
+        Parent parent;
+
+        if(bundle != null && bundle.containsKey("parent")){
+            parent = (Parent) bundle.get("parent");
+            Log.d("StudentRegistration", "parent email address: " + parent.getEmailaddress());
+        }
+
     }
     public void signup(View view) {
         fnamestr = fname.getText().toString();
@@ -65,35 +72,70 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         countrystr = country.getText().toString();
         AnneeScolaire chosen_anne = (AnneeScolaire) anneeSpnr.getSelectedItem();
 
+        //create student object and check if student is already in the db by calling the asynctask
+        student = student = new Student(fnamestr, lnamestr, dobstr, emailstr, passstr, citystr, countrystr, chosen_anne, parent);
 
         if(parent == null){
             //case where an individual student is signing up, not a student being signed up by his parent
+            Log.d("StudentRegistration", "signup function: single student");
+            //student = new Student(fnamestr, lnamestr, dobstr, emailstr, passstr, citystr, countrystr, chosen_anne, null);
+            //CheckObjectExistInDbAsyncTask existtask = new CheckObjectExistInDbAsyncTask(this);
+            //existtask.execute(student);
+            SignupBackgroundTask signupBackgroundTask = new SignupBackgroundTask(this);
+            signupBackgroundTask.execute(student);
+            Log.d("StudentRegistration", "single student: after exist task");
         }
         else{
             //case where a parent is signing up a student
-            student = new Student(fnamestr, lnamestr, dobstr, emailstr, passstr, citystr, countrystr, chosen_anne, parent);
-            //check if student exists in DB before.
-            CheckObjectExistInDbAsyncTask existtask = new CheckObjectExistInDbAsyncTask(this);
-            existtask.execute(student);
-            Log.d("afterexecute", "afterexecute");
+            //student = new Student(fnamestr, lnamestr, dobstr, emailstr, passstr, citystr, countrystr, chosen_anne, parent);
+            //check if student is in DB before.
+            //CheckObjectExistInDbAsyncTask existtask = new CheckObjectExistInDbAsyncTask(this);
+            //existtask.execute(student);
+            //Log.d("afterexecute", "afterexecute");
         }
 
 
     }
 
     @Override
-    public void processData(String data) {
-        Log.d("StudentRegistration", data);
-        if(data.equals("true")){
-            this.testTextView.setText("Your email is already in use");
+    public void processData(String code, String data) {
+        Log.d("StudentRegistration", "On Process");
+        Log.d("StudentRegistration", "data: " + data);
+        Log.d("StudentRegistration", "code: " + code);
 
+        //useless?
+        if(code.equals("existstask")){
+            Log.d("StudentRegistration", "in if(code = existstask)");
+            if (data.equals("true")) {
+                Log.d("StudentRegistration", "exists = true");
+                //student already exists in db
+                this.testTextView.setText("Your email is already in use");
+
+            }
+            else if(data.equals("false")){
+                //student doesn't exist in db
+                Log.d("StudentRegistration", "exists = false");
+                if((this.parent == null)){
+                    //signing up a student with no parent
+                    Log.d("StudentRegistration", "process data: signing up a student with no parent");
+                    //execute signup task
+                    SignupBackgroundTask signupBackgroundTask = new SignupBackgroundTask(this);
+                    signupBackgroundTask.execute(student);
+                }
+                else{
+                    //student with parent
+                    Log.d("StudentRegistration", "process data: signing up a student with parent");
+                }
+
+            }
         }
-        else{
-            this.testTextView.setText("You can sign up");
-            Intent returnIntent = new Intent();
-            returnIntent.putExtra("student", student);
-            setResult(RESULT_OK, returnIntent);
-            finish();
+        //if result is from signup task
+        else if(code.equals("signupask")){
+            Log.d("StudentRegistration", "process data: Signup task");
         }
+
+        Log.d("StudentRegistration", "process data: Out");
+
     }
+
 }
