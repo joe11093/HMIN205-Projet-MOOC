@@ -1,18 +1,23 @@
 Utiliser les capteurs
-Utiliser les strings au lieu de mettre le texte directement
 Utiliser les Shared preferences pour implementer le Always logged in
 Utiliser des Fragments (Pour le sign up par exemple)
 Utiliser les menus
 Utiliser material
 Creer un theme
-Login with facebook?
 Add Back button to all activities
 Add date picker
 Check that fields are not null before moving to the next activity.
+Utiliser des services?
+Notifications
+Content providers?
+Use cursoradapter to request the db and load data into forms????
+
+Refactor the AsynTasks??
+Test connectivity in AsyncTask before executing the network task (ref ch4 p3 et 5...)
 =========
 DATABASE
 =========
-Enforece foreign key relation
+
 
 
 ===========
