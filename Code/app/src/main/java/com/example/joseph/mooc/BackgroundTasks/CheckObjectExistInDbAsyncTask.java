@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.joseph.mooc.Helper.DBMooc;
+import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.Models.Parent;
 import com.example.joseph.mooc.Models.Student;
@@ -46,15 +47,17 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
 
     @Override
     protected String doInBackground(Object... params) {
+        Log.d("CheckExistsTask", "start of doInBackground");
         String checkurl= DBMooc.baseUrl + "check_exists.php";
         String type;
 
         Object toCheck = params[0];
         if(toCheck.getClass() == Parent.class || toCheck.getClass() == Student.class || toCheck.getClass() == User.class){
             //set type, cast to User and retrieve search criteria
+            Log.d("CheckExistsTask", "Object is of type user");
             type = "user";
             User usersearch = (User) toCheck;
-            Log.d("EMAIL", usersearch.getEmailaddress());
+            Log.d("CheckExistsTask", "email" + usersearch.getEmailaddress());
             String data = "";
             try{
                 URL url = new URL(checkurl);
@@ -80,7 +83,7 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
                 searchinfo.put("type", "user");
 
                 data = searchinfo.toString();
-                Log.d("JSON", data);
+                Log.d("CheckExistsTask", "data: " + data);
 
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
@@ -98,9 +101,9 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
 
                 bytes = baos.toByteArray();
                 String result = new String(bytes, Charset.forName("utf-8"));
-
+                Log.d("CheckExistsTask", "result: " + result);
                 instream.close();
-
+                Log.d("CheckExistsTask", "End of doInBackground. Returning result.");
                 return result;
 
             }catch (MalformedURLException e) {
@@ -116,10 +119,10 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
 
     @Override
     protected void onPostExecute(String exists) {
-
+        Log.d("CheckExistsTask", "start of onpostexecute");
+        Log.d("CheckExistsTask", "Parameter \"exists\"" + exists);
         super.onPostExecute(exists);
-        //Log.d("onpostexecute", exists);
         //Toast.makeText(ctx, "Result: " + exists, Toast.LENGTH_LONG).show();
-        cb.processData(exists);
+        cb.processData("existstask", exists);
     }
 }
