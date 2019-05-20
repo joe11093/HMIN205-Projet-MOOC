@@ -11,6 +11,11 @@
         tools:layout_editor_absoluteY="8dp">
 
 
+    <TextView
+        android:id="@+id/loginMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="match_parent"

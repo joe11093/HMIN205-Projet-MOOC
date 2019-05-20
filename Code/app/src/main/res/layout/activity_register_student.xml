@@ -7,6 +7,14 @@
     tools:context="com.example.joseph.mooc.Activities.RegisterParentActivity">
 
     <TextView
+        android:id="@+id/studentregMessagetx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
+
+    <TextView
         android:id="@+id/studentregTesttx"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

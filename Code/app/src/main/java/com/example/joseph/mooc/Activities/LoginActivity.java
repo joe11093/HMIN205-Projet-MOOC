@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements Callback {
 
 
     EditText emailEditText, passwordEditText;
-
+    TextView loginMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,13 @@ public class LoginActivity extends AppCompatActivity implements Callback {
         //get the edit texts
         this.emailEditText = findViewById(R.id.loginEmail);
         this.passwordEditText = findViewById(R.id.loginPassword);
+        this.loginMessage = findViewById(R.id.loginMessage);
+
+        Bundle bundle = getIntent().getExtras();
+        Log.d("LoginActivity", bundle.get("message").toString());
+        if(bundle != null && bundle.containsKey("message")){
+            this.loginMessage.setText((String) bundle.get("message"));
+        }
     }
 
     public void login(View v){

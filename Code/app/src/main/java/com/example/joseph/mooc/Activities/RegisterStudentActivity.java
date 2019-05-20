@@ -1,6 +1,7 @@
 package com.example.joseph.mooc.Activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +26,7 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
     EditText fname, lname, dob, email, pass, city, country;
     String fnamestr, lnamestr, dobstr, emailstr, passstr,citystr,countrystr;
     Spinner anneeSpnr;
-    TextView testTextView;
+    TextView testTextView, signupMessage;
     Parent parent = null;
     Student student;
 
@@ -41,6 +42,7 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         this.pass = findViewById(R.id.studentSignupPassword);
         this.city = findViewById(R.id.studentSignupCity);
         this.country = findViewById(R.id.studentSignupCountry);
+        this.signupMessage = findViewById(R.id.studentregMessagetx);
 
         this.testTextView = findViewById(R.id.studentregTesttx);
 
@@ -129,12 +131,27 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
 
             }
         }
+
         //if result is from signup task
-        else if(code.equals("signupask")){
+        else if(code.equals("signuptask")){
             Log.d("StudentRegistration", "process data: Signup task");
+            Log.d("StudentRegistration", "code= " + code + " data = " + data);
+            if(data.equals("true")){
+                //sign up is successfull
+                this.signupMessage.setTextColor(Color.GREEN);
+                this.signupMessage.setText(R.string.signupSuccessMessage);
+                Intent i = new Intent(this, LoginActivity.class);
+                i.putExtra("message", getResources().getString(R.string.afterSignupLoginMessage));
+                startActivity(i);
+            }
+            else{
+                //signup wasn't successfull
+                this.signupMessage.setTextColor(Color.RED);
+                this.signupMessage.setText(R.string.signupFailMessage);
+            }
         }
 
-        Log.d("StudentRegistration", "process data: Out");
+        Log.d("StudentRegistration", "process data: finishing process datass");
 
     }
 

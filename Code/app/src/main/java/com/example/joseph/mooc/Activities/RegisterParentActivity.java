@@ -33,6 +33,7 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
     Parent parent;
     ArrayList<Student> students = new ArrayList<Student>();
     Intent intentStudentRegistration, intentFinishRegistration;
+    int numberChildren;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
         testTxt = findViewById(R.id.testtx);
         //fill spinner with possible number of children
         numberofchildrenSpinner = (Spinner) findViewById(R.id.childrenNumberSpinner);
-        Integer[] numbers = new Integer[]{1,2,3,4,5,6,7,8,9,10};
+        Integer[] numbers = new Integer[]{0,1,2,3,4,5,6,7,8,9,10};
         ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, numbers);
         numberofchildrenSpinner.setAdapter(adapter);
     }
@@ -70,7 +71,7 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
         String pass = password.getText().toString();
         String citystring = city.getText().toString();
         String countrystring = country.getText().toString();
-
+        this.numberChildren = (int) this.numberofchildrenSpinner.getSelectedItem();
 
         //creating parent object
         parent = new Parent(fname, lname, datebirth, email, pass, citystring, countrystring);
@@ -91,7 +92,7 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
     }
 
     @Override
-    public void processData(String data) {
+    public void processData(String code, String data) {
         //Toast.makeText(this, "Result: " + data, Toast.LENGTH_LONG).show();
         //Log.d("datafromasync", data);
         if(data.equals("true")){
@@ -99,12 +100,12 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
         }
         else{
             this.testTxt.setText("You can sign up");
-            int nbchildren = (int) this.numberofchildrenSpinner.getSelectedItem();
-            Log.d("numchildren", ""+nbchildren);
+
+            Log.d("numchildren", ""+this.numberChildren);
 
 
-            if(nbchildren > 0){
-                Log.d("nbchildrenGT0", ""+nbchildren);
+            if(this.numberChildren > 0){
+                Log.d("nbchildrenGT0", ""+this.numberChildren);
                 intentStudentRegistration.putExtra("parent", parent);
 
                 //delete this part once it works
@@ -128,7 +129,7 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
 
             }
             else{
-                Log.d("else", "else, number children <= 0");
+                Log.d("else", "else, number children = 0");
                 //finish registration process
             }
         }

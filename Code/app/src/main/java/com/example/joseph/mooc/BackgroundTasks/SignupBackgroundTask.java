@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.joseph.mooc.Helper.DBMooc;
+import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.Models.Parent;
 import com.example.joseph.mooc.Models.Student;
 import com.example.joseph.mooc.Models.User;
@@ -27,10 +28,10 @@ import java.nio.charset.Charset;
 
 public class SignupBackgroundTask extends AsyncTask<User, Void, String> {
 
-    Context ctx;
-    public SignupBackgroundTask(Context c) {
+    Callback cb;
+    public SignupBackgroundTask(Callback cb) {
         Log.d("SignupTask", "In the signup backgroud Task");
-        this.ctx = c;
+        this.cb = cb;
     }
 
     @Override
@@ -57,6 +58,8 @@ public class SignupBackgroundTask extends AsyncTask<User, Void, String> {
         Log.d("SignupTask", "onPostExecute Function");
         super.onPostExecute(s);
         Log.d("SignupTask", "onPostExecute: Parameter = " + s);
+        cb.processData("signuptask", s);
+
     }
 
     private String registerStudentInDB(Student student){
