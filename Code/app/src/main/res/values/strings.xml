@@ -19,4 +19,7 @@
     <string name="signup">Sign Up</string>
     <string name="logout">Log out</string>
     <string name="logoutMessage">You were logged out</string>
+    <string name="signupSuccessMessage">Signup was successful</string>
+    <string name="signupFailMessage">Signup was unsuccessful</string>
+    <string name="afterSignupLoginMessage">Signin with your newly created account</string>
 </resources>
