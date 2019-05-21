@@ -22,4 +22,5 @@
     <string name="signupSuccessMessage">Signup was successful</string>
     <string name="signupFailMessage">Signup was unsuccessful</string>
     <string name="afterSignupLoginMessage">Signin with your newly created account</string>
+    <string name = "addStudents">Add Students</string>
 </resources>
