@@ -104,5 +104,5 @@ CREATE TABLE ACTIVITE(
 
 INSERT INTO utilisateur (firstname, lastname, dateofbirth, email, password, city, country, type) VALUES ('joseph', 'lastname', '1993-10-01', 'josephsaba_93@hotmail.com', 'password', 'Bakarzala', 'Lebanon', 'parent');
 
-INSERT INTO `annee_scolaire`(`id`, `annee_scolaire`) VALUES (1,'4eme');
-INSERT INTO `annee_scolaire`(`id`, `annee_scolaire`) VALUES (2,'3eme');
+INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (1,'4eme');
+INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (2,'3eme');

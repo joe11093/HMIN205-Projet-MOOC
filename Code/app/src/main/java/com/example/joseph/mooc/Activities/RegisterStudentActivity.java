@@ -40,6 +40,7 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         Log.d("StudentRegistration", "In oncreate of register student activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_student);
+
         this.fname = findViewById(R.id.studentSignupFirstName);
         this.lname = findViewById(R.id.studentSignupLasttName);
         this.dob = findViewById(R.id.studentSignupDOB);
@@ -106,6 +107,7 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         GetAllTask getAllTask = new GetAllTask(this);
         getAllTask.execute(spinner_type);
     }
+
     public void setSpinnerAdapter(Spinner s, String data){
         if(!data.equals("error") && !data.equals("no_results")) {
             try {

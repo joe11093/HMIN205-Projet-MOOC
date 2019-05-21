@@ -44,14 +44,14 @@ public class LoginActivity extends AppCompatActivity implements Callback {
         this.loginMessage = findViewById(R.id.loginMessage);
 
         Bundle bundle = getIntent().getExtras();
-        Log.d("LoginActivity", bundle.get("message").toString());
         if(bundle != null && bundle.containsKey("message")){
+            Log.d("LoginActivity", bundle.get("message").toString());
             this.loginMessage.setText((String) bundle.get("message"));
         }
     }
 
     public void login(View v){
-        Log.d("LoginActivity", "Login Function");
+        Log.d(".", "Login Function");
         Toast.makeText(this, "Log in function", Toast.LENGTH_SHORT).show();
         String email = this.emailEditText.getText().toString();
         String password = this.passwordEditText.getText().toString();

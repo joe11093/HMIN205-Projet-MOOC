@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -34,6 +36,7 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
     ArrayList<Student> students = new ArrayList<Student>();
     Intent intentStudentRegistration, intentFinishRegistration;
     int numberChildren;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +56,55 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
         city = findViewById(R.id.parentSignupCity);
         country = findViewById(R.id.parentSignupCountry);
 
+        this.btn = findViewById(R.id.parentSignupSubmit);
+
         testTxt = findViewById(R.id.testtx);
         //fill spinner with possible number of children
         numberofchildrenSpinner = (Spinner) findViewById(R.id.childrenNumberSpinner);
         Integer[] numbers = new Integer[]{0,1,2,3,4,5,6,7,8,9,10};
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, numbers);
+        final ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, numbers);
         numberofchildrenSpinner.setAdapter(adapter);
+
+
+
+        //add listener to spinner
+        numberofchildrenSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            Button b = findViewById(R.id.parentSignupSubmit);
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(adapterView.getItemAtPosition(i).equals(0)){
+                    b.setText(getResources().getString(R.string.signup));
+                    b.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                        }
+                    });
+                }
+                else{
+                    b.setText(getResources().getString(R.string.addStudents));
+                    b.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                b.setEnabled(false);
+            }
+        });
+
     }
 
 
+    public void signUpParent(){
+
+    }
     public void signup(View view) {
         //gettings strings of all input values
         String fname = firstname.getText().toString();
