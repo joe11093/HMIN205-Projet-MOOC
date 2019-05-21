@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.joseph.mooc.BackgroundTasks.CheckObjectExistInDbAsyncTask;
+import com.example.joseph.mooc.BackgroundTasks.GetAllTask;
 import com.example.joseph.mooc.BackgroundTasks.SignupBackgroundTask;
 import com.example.joseph.mooc.Helper.AnneeScolaireArrayAdapter;
 import com.example.joseph.mooc.Helper.GlobalProperties;
@@ -21,6 +22,10 @@ import com.example.joseph.mooc.Models.AnneeScolaire;
 import com.example.joseph.mooc.Models.Parent;
 import com.example.joseph.mooc.Models.Student;
 import com.example.joseph.mooc.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class RegisterStudentActivity extends AppCompatActivity  implements Callback{
     EditText fname, lname, dob, email, pass, city, country;
@@ -48,11 +53,6 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
 
         this.anneeSpnr = findViewById(R.id.studentSignupAnneeScolaireSpinner);
 
-        AnneeScolaire[] annee_list = new AnneeScolaire[]{new AnneeScolaire(4, "4eme"), new AnneeScolaire(5, "5eme")};
-
-        AnneeScolaireArrayAdapter adapter = new AnneeScolaireArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, annee_list);
-        anneeSpnr.setAdapter(adapter);
-
         //get parent from the intent
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
@@ -62,6 +62,9 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
             parent = (Parent) bundle.get("parent");
             Log.d("StudentRegistration", "parent email address: " + parent.getEmailaddress());
         }
+        //fill spinner from database
+        this.fillSpinner("annee_scolaire");
+
 
     }
     public void signup(View view) {
@@ -97,6 +100,30 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         }
 
 
+    }
+
+    public void fillSpinner(String spinner_type){
+        GetAllTask getAllTask = new GetAllTask(this);
+        getAllTask.execute(spinner_type);
+    }
+    public void setSpinnerAdapter(Spinner s, String data){
+        if(!data.equals("error") && !data.equals("no_results")) {
+            try {
+                JSONArray jsonArray = new JSONArray(data);
+                AnneeScolaire[] anneeScolairesArray = new AnneeScolaire[jsonArray.length()];
+
+                for(int i =  0; i < jsonArray.length(); i++){
+                    JSONObject annee = jsonArray.getJSONObject(i);
+                    anneeScolairesArray[i] = new AnneeScolaire(annee.getInt("id"), annee.getString("annee_scolaire"));
+                }
+                Log.d("StudentRegistration", "getalltask: printing first element of returned json: " + anneeScolairesArray[0].getId() + ": " + anneeScolairesArray[0].getAnneescolaire());
+                //set the adapter
+                AnneeScolaireArrayAdapter adapter = new AnneeScolaireArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, anneeScolairesArray);
+                anneeSpnr.setAdapter(adapter);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -144,15 +171,25 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
                 i.putExtra("message", getResources().getString(R.string.afterSignupLoginMessage));
                 startActivity(i);
             }
+
             else{
                 //signup wasn't successfull
                 this.signupMessage.setTextColor(Color.RED);
                 this.signupMessage.setText(R.string.signupFailMessage);
             }
         }
+        //if we're getting all annee scolaire
+        else if(code.equals("getall-annee_scolaire")){
+            Log.d("StudentRegistration", "process data: getalltask");
+            Log.d("StudentRegistration", "data: \n" + data);
 
+            //fill the spinner with the received data
+            this.setSpinnerAdapter(this.anneeSpnr, data);
+
+        }
         Log.d("StudentRegistration", "process data: finishing process datass");
 
     }
+
 
 }
