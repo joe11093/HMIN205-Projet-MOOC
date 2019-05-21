@@ -90,6 +90,16 @@ CREATE TABLE STUDENT_MATIERE_ANNEE(
     PRIMARY KEY(id)
 );
 
+CREATE TABLE ACTIVITE(
+    id int AUTO_INCREMENT,
+    user_id int REFERENCES user(id),
+    type varchar(255),
+    date Date,
+    time Time,
+    activite_text varchar(255),
+    PRIMARY KEY(id)
+);
+
 
 
 INSERT INTO utilisateur (firstname, lastname, dateofbirth, email, password, city, country, type) VALUES ('joseph', 'lastname', '1993-10-01', 'josephsaba_93@hotmail.com', 'password', 'Bakarzala', 'Lebanon', 'parent');
