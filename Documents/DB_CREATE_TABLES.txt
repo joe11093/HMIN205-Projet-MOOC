@@ -79,7 +79,7 @@ CREATE TABLE CONTROLE(
 CREATE TABLE MATIERE_ANNEE(
     id int AUTO_INCREMENT,
     matiere_id int REFERENCES matiere(id),
-    anneeid_id int REFERENCES annee_scolaire(id),
+    annee_id int REFERENCES annee_scolaire(id),
     PRIMARY KEY (id)
 );
 
@@ -106,3 +106,19 @@ INSERT INTO utilisateur (firstname, lastname, dateofbirth, email, password, city
 
 INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (1,'4eme');
 INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (2,'3eme');
+
+INSERT INTO matiere(id, titre) VALUES (1, "Français");
+INSERT INTO matiere(id, titre) VALUES (2, "Anglais");
+INSERT INTO matiere(id, titre) VALUES (3, "Histoire");
+
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (1, 1, 1);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (2, 2, 1);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (3, 3, 1);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (4, 1, 2);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (5, 2, 2);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (6, 3, 2);
+
+INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_annee_id, fiche_de_revision_id) VALUES (1, 1, " La phrase simple et la phrase complexe", "<h2>L'organisation de la phrase simple et de la phrase complexe</h2><p>La phrase simple contient un seul verbe conjugué, donc une seule proposition (= partie de phrase s’organisant autour d’un verbe conjugué). Celle-ci est indépendante car elle ne dépend d'aucune autre proposition et inversement.</p><p>Exemple :<br />Lancelot est un héros célèbre des romans de chevalerie.<br />Cette phrase est une phrase simple. Cependant, elle ne se limite pas au sujet et au verbe, plusieurs compléments peuvent être ajoutés.La phrase complexe contient plusieurs verbes conjugués, donc plusieurs propositions.</p>",1,1);
+
+INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_annee_id, fiche_de_revision_id) VALUES (2, 2, " La phrase verbale et la phrase non verbale", "<h2>La phrase verbale</h2><p>On appelle phrase verbale une phrase qui s'organise autour d'un verbe. On appelle ce verbe le noyau de la phrase.
+</p><p><b>Exemple:</b> Il a neigé aujourd'hui.</p><p>Une phrase verbale peut comporter plusieurs noyaux verbaux.</p><p><b>Exemple:</b> Il a neigé aujourd'hui, mais la météo annonce qu'il fera beau demain.</p><h2>La phrase non verbale</h2><p>On appelle phrase non verbale une phrase qui est organisée autour d'autres éléments que le verbe. Son noyau peut être de différentes natures.</p><br /><p><b>Un nom</b><br />On parle alors de phrase nominale.</p>",1,2);
