@@ -11,17 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.joseph.mooc.BackgroundTasks.BackgroundTask;
-import com.example.joseph.mooc.BackgroundTasks.LoginAsyncClass;
+import com.example.joseph.mooc.BackgroundTasks.LoginAsyncTask;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.Callback;
-import com.example.joseph.mooc.Models.*;
 import com.example.joseph.mooc.R;
 import com.example.joseph.mooc.Models.Login;
-
-import org.json.JSONObject;
-
-import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements Callback {
     //get username and password from user
@@ -59,8 +53,8 @@ public class LoginActivity extends AppCompatActivity implements Callback {
 
         //execute the login async task
         Log.d("LoginActivity", "Starting the login async task");
-        LoginAsyncClass loginAsyncClass = new LoginAsyncClass(this);
-        loginAsyncClass.execute(login);
+        LoginAsyncTask loginAsyncTask = new LoginAsyncTask(this);
+        loginAsyncTask.execute(login);
     }
 
     @Override
@@ -92,15 +86,25 @@ public class LoginActivity extends AppCompatActivity implements Callback {
                     String firstname = array[1].split(":")[1];
                     String email = array[2].split(":")[1];
                     String type = array[3].split(":")[1];
+                    String annee_id = array[4].split(":")[1];
+                    String annee_scolaire = array[5].split(":")[1];
+
                     Log.d("splitarray", id);
                     Log.d("splitarray", firstname);
                     Log.d("splitarray", email);
                     Log.d("splitarray", type);
+                    Log.d("splitarray", id);
+                    Log.d("splitarray", firstname);
+                    Log.d("splitarray", annee_id);
+                    Log.d("splitarray", annee_scolaire);
 
                     editor.putString("id", id);
                     editor.putString("firstname", firstname);
                     editor.putString("email", email);
                     editor.putString("type", type);
+                    editor.putString("annee_id", annee_id);
+                    editor.putString("annee_scolaire", annee_scolaire);
+
                     editor.apply();
                     Log.d("LoginActivity", "Process data for login. Added to shared preferences.");
                     Intent intent = new Intent(this, UserProfileActivity.class);
