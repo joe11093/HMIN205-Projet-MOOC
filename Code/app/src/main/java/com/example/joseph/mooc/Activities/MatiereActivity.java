@@ -1,7 +1,9 @@
 package com.example.joseph.mooc.Activities;
 
 import android.content.Context;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.Models.QCM;
 import com.example.joseph.mooc.Fragments.FicheDeCoursListFragment;
 import com.example.joseph.mooc.Fragments.QcmListFragment;
@@ -48,6 +51,11 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
         this.matiereTv = findViewById(R.id.testMatiereFromRecycler);
         Bundle bundle = getIntent().getExtras();
         this.matiere = (Matiere) bundle.get("matiere");
+
+        registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
 
         /*this.matiere = bundle.getString("matiere");
         this.matiere_id = bundle.getString("matiere_id");

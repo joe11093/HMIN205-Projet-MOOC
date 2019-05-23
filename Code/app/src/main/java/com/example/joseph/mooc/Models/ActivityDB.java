@@ -12,8 +12,6 @@ public class ActivityDB {
     String date;
     String time;
     String activite_text;
-    String date_activite;
-    String temps_activite;
 
     public ActivityDB(String user_id, String type, String ref, String activite_text) {
         this.user_id = user_id;
@@ -30,6 +28,7 @@ public class ActivityDB {
         this.activite_text = activite_text;
     }
 
+
     public ActivityDB(String id, String user_id, String type, String ref, String date, String time, String activite_text) {
         this.id = id;
         this.user_id = user_id;
@@ -38,18 +37,6 @@ public class ActivityDB {
         this.date = date;
         this.time = time;
         this.activite_text = activite_text;
-    }
-
-    public ActivityDB(String id, String user_id, String type, String ref, String date, String time, String activite_text, String date_activite, String temps_activite) {
-        this.id = id;
-        this.user_id = user_id;
-        this.type = type;
-        this.ref = ref;
-        this.date = date;
-        this.time = time;
-        this.activite_text = activite_text;
-        this.date_activite = date_activite;
-        this.temps_activite = temps_activite;
     }
 
     public String getId() {

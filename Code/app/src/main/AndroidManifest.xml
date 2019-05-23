@@ -5,6 +5,7 @@
     <!-- Internet Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,13 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme.Blue">
-        <activity android:name=".Activities.HomeParent"
+        <activity
+            android:name=".Activities.HomeParent"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.HomeStudent"
+        <activity
+            android:name=".Activities.HomeStudent"
             android:label="Student"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -36,6 +39,7 @@
         <activity android:name=".Activities.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -43,8 +47,19 @@
         <activity android:name=".Activities.MatiereActivity" />
         <activity
             android:name=".Activities.MatieresOfUserActivity"
-            android:label="@string/title_activity_matieres_of_user">
-        </activity>
+            android:label="@string/title_activity_matieres_of_user"></activity>
+
+        <receiver
+            android:name=".Helper.CheckConnectivity"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.permission.INTERNET" />
+                <action android:name="android.permission.ACCESS_NETWORK_STATE" />
+                <action android:name="android.permission.ACCESS_WIFI_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Activities.NoConnection"></activity>
     </application>
 
 </manifest>

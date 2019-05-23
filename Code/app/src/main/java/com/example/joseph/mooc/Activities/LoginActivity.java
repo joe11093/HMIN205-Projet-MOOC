@@ -2,7 +2,9 @@ package com.example.joseph.mooc.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 
 import com.example.joseph.mooc.BackgroundTasks.LoginAsyncTask;
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.R;
@@ -32,6 +35,11 @@ public class LoginActivity extends AppCompatActivity implements Callback {
         Log.d("LoginActivity", "started the login activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+       /* registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));*/
 
         //get the edit texts
         this.emailEditText = findViewById(R.id.loginEmail);

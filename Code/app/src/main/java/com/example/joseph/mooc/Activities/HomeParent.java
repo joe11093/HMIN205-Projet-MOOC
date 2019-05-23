@@ -1,5 +1,7 @@
 package com.example.joseph.mooc.Activities;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +17,7 @@ import com.example.joseph.mooc.Fragments.HomeParentFragment;
 import com.example.joseph.mooc.Fragments.LogoutParentFragment;
 import com.example.joseph.mooc.Fragments.ProfileParentFragment;
 import com.example.joseph.mooc.Fragments.SubscriptionFragment;
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.R;
 
 public class HomeParent extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -37,6 +40,11 @@ public class HomeParent extends AppCompatActivity implements NavigationView.OnNa
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

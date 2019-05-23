@@ -2,6 +2,8 @@ package com.example.joseph.mooc.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -20,6 +22,7 @@ import com.example.joseph.mooc.Fragments.HomeStudentFragment;
 import com.example.joseph.mooc.Fragments.LogoutStudentFragment;
 import com.example.joseph.mooc.Fragments.ProfileStudentFragment;
 import com.example.joseph.mooc.Fragments.QuizzFragment;
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.R;
 
@@ -35,6 +38,12 @@ public class HomeStudent extends AppCompatActivity implements NavigationView.OnN
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
+        
         setContentView(R.layout.activity_home_student);
 
         String header_name = getSharedPreferences(GlobalProperties.login_sharedpreferences, Context.MODE_PRIVATE).getString("firstname", null);

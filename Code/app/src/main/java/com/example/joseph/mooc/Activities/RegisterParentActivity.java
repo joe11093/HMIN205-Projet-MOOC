@@ -2,6 +2,8 @@ package com.example.joseph.mooc.Activities;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.joseph.mooc.BackgroundTasks.CheckObjectExistInDbAsyncTask;
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.Models.Parent;
 import com.example.joseph.mooc.Models.Student;
@@ -38,6 +41,11 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_parent);
+
+        registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
 
         //set up intents
         intentStudentRegistration = new Intent(this, RegisterStudentActivity.class);

@@ -1,7 +1,9 @@
 package com.example.joseph.mooc.Activities;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -19,6 +21,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.joseph.mooc.BackgroundTasks.GetMatiereOfAnneeScolaireTask;
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Helper.MatiereArrayAdapter;
 import com.example.joseph.mooc.Interfaces.Callback;
@@ -45,6 +48,11 @@ public class MatieresOfUserActivity extends AppCompatActivity implements Callbac
         super.onCreate(savedInstanceState);
         this.setTitle("TEACHING");
         setContentView(R.layout.activity_matieres_of_user);
+
+        registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
 
         prefs = getSharedPreferences(GlobalProperties.login_sharedpreferences, MODE_PRIVATE);
         String loggedIn_annee_id = prefs.getString("annee_id", null);

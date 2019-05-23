@@ -3,12 +3,18 @@ package com.example.joseph.mooc.Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.joseph.mooc.BackgroundTasks.GetActivityLogofUserTask;
+import com.example.joseph.mooc.Helper.ActiviteDbAdapter;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.Models.ActivityDB;
@@ -30,6 +36,7 @@ public class ActivityLogFragment extends Fragment implements Callback {
 
     String user_id;
     ArrayList<ActivityDB> activities;
+    RecyclerView recyclerActivities;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,6 +59,20 @@ public class ActivityLogFragment extends Fragment implements Callback {
         return view;
     }
 
+    public void initializeRecyclerView(){
+        //init recyclerview with the matierearrayadapter
+        this.recyclerActivities = getView().findViewById(R.id.recyclerActivities);
+        ActiviteDbAdapter activiteArrayAdapter = new ActiviteDbAdapter(this.activities, getActivity(), R.layout.activitylog_listitem);
+        recyclerActivities.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerActivities.setItemAnimator(new DefaultItemAnimator());
+        recyclerActivities.setHasFixedSize(true);
+        //DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        //itemDecorator.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.divider));
+        //recyclerActivities.addItemDecoration(itemDecorator);
+
+
+        recyclerActivities.setAdapter(activiteArrayAdapter);
+    }
     @Override
     public void processData(String code, String data) {
         if (data != null && code.equals("getActivityLogTask")) {
@@ -69,11 +90,11 @@ public class ActivityLogFragment extends Fragment implements Callback {
                         }
                     }
                     if(toAdd) {
-                        this.activities.add(new ActivityDB(act.getString("id"), act.getString("user_id"), act.getString("type"), act.getString("ref"), act.getString("activite_text"),act.getString("date"), act.getString("time")));
+                        this.activities.add(new ActivityDB(act.getString("id"), act.getString("user_id"), act.getString("type"), act.getString("ref"), act.getString("date"), act.getString("time"), act.getString("activite_text")));
                         }
                     }
                     Log.d("getActivityLogTask", "Size of activity array: " + this.activities.size());
-
+                    initializeRecyclerView();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
