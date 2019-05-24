@@ -23,7 +23,10 @@
     <string name="signupFailMessage">Signup was unsuccessful</string>
     <string name="afterSignupLoginMessage">Signin with your newly created account</string>
     <string name="addStudents">Add Students</string>
-
+    <string name="fichesDeCours">Fiche de Cours</string>
+    <string name="presentations">Presentations Videos</string>
+    <string name="fichesDeRevision">Fichs de Revision</string>
+    <string name="QCM">QCM</string>
 
     <!-- for the theme -->
     <!-- Home -->
@@ -85,4 +88,5 @@
     <!-- Snackbars -->
     <string name="snackbar_action">Action</string>
     <string name="title_activity_matieres_of_user">MatieresOfUserActivity</string>
+    <string name="title_activity_matiere">MatiereActivity</string>
 </resources>
