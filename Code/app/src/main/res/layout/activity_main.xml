@@ -45,7 +45,7 @@
 
     <Button
         android:id="@+id/btnHomeSignup"
-        style="@android:style/Widget.Button"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -84,6 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:text="Mes Matieres"
+        android:onClick="cours"
         app:layout_constraintStart_toStartOf="@+id/btnProfile"
         app:layout_constraintTop_toBottomOf="@+id/btnProfile" />
 
