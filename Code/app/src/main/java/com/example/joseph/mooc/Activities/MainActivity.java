@@ -35,4 +35,9 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Video", "Video Playing....");
 
     }
+
+    public void cours(View view) {
+        Intent intent = new Intent(this, MatieresOfUserActivity.class);
+        startActivity(intent);
+    }
 }
