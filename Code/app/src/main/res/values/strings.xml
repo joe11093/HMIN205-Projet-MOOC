@@ -19,4 +19,18 @@
     <string name="signup">Sign Up</string>
     <string name="logout">Log out</string>
     <string name="logoutMessage">You were logged out</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_home__parent">Home</string>
+    <string name="nav_header_title">pseudonyme</string>
+    <string name="nav_header_subtitle">pseudonyme@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home_parent">HomeParent</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="email_parent">pseudonyme@mooc.com</string>
+    <string name="phone_parent">+33 6 12 34 56 78</string>
+    <string name="address_parent"> N° street, city, postal code, town, Country</string>
+    <string name="psw_parent"> ***********</string>
+    <string name="psw_student"> ***********</string>
 </resources>

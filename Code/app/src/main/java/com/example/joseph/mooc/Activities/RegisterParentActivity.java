@@ -91,7 +91,7 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
     }
 
     @Override
-    public void processData(String data) {
+    public void processData(String code, String data) {
         //Toast.makeText(this, "Result: " + data, Toast.LENGTH_LONG).show();
         //Log.d("datafromasync", data);
         if(data.equals("true")){

@@ -81,7 +81,6 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
 
     }
 
-    @Override
     public void processData(String data) {
         Log.d("StudentRegistration", data);
         if(data.equals("true")){
@@ -95,5 +94,10 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
             setResult(RESULT_OK, returnIntent);
             finish();
         }
+    }
+
+    @Override
+    public void processData(String code, String data) {
+
     }
 }

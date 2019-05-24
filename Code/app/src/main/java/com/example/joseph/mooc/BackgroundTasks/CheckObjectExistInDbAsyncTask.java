@@ -120,6 +120,6 @@ public class CheckObjectExistInDbAsyncTask extends AsyncTask<Object, Void, Strin
         super.onPostExecute(exists);
         //Log.d("onpostexecute", exists);
         //Toast.makeText(ctx, "Result: " + exists, Toast.LENGTH_LONG).show();
-        cb.processData(exists);
+        cb.processData("existstask", exists);
     }
 }
