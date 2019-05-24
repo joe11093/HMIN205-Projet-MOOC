@@ -97,8 +97,9 @@
                 android:id="@+id/parentSignupSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/addStudents"
                 android:onClick="signup"
-                android:text="@string/signup" />
+                />
         </LinearLayout>
 
     </ScrollView>

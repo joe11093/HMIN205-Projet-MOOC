@@ -40,4 +40,9 @@ public class Matiere {
     public void setAnnee_id(String annee_id) {
         this.annee_id = annee_id;
     }
+
+    @Override
+    public String toString() {
+        return this.getTitre();
+    }
 }

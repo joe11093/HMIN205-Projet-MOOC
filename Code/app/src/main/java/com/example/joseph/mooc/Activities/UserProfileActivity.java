@@ -1,9 +1,13 @@
 package com.example.joseph.mooc.Activities;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -11,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.joseph.mooc.BackgroundTasks.GetMatiereOfAnneeScolaireTask;
 import com.example.joseph.mooc.Helper.GlobalProperties;
+import com.example.joseph.mooc.Helper.MatiereArrayAdapter;
 import com.example.joseph.mooc.Models.Matiere;
 import com.example.joseph.mooc.R;
 import com.example.joseph.mooc.Interfaces.Callback;
@@ -19,10 +24,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class UserProfileActivity extends AppCompatActivity implements Callback{
     String userId, firstname, annee_id, annee_scolaire;
-    TextView topOfPageText;
+    TextView topOfPageText, txtListMatieres;
     SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +53,7 @@ public class UserProfileActivity extends AppCompatActivity implements Callback{
         topOfPageText.setText("Hello " + this.firstname + ", this is your profile page. Your school year is: " + this.annee_scolaire);
 
 
-        //get all matieres for the corresponding annee scolaire of this user
-        GetMatiereOfAnneeScolaireTask getMatiereOfAnneeScolaireTask = new GetMatiereOfAnneeScolaireTask(this);
-        getMatiereOfAnneeScolaireTask.execute(this.annee_id);
+
 
     }
 
@@ -80,13 +86,23 @@ public class UserProfileActivity extends AppCompatActivity implements Callback{
                         matiereArray[i] = new Matiere(matiere.getInt("id"), matiere.getString("titre"), this.annee_id);
                     }
                     Log.d("UserProfileActivity", "getmatiereanneetask: printing first element of returned json: " + matiereArray[0].getId() + ": " + matiereArray[0].getTitre());
-                    //set the adapter
 
+                    //test the results by setting a text view
+                    /*
+                    for(int i = 0; i < matiereArray.length; i++){
+                        this.txtListMatieres.setText(this.txtListMatieres.getText() + matiereArray[i].getTitre());
+                    }
+                    */
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             }
         }
+    }
+
+    public void menu(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

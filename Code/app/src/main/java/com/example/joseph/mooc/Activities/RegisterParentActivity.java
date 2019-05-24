@@ -61,50 +61,13 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
         testTxt = findViewById(R.id.testtx);
         //fill spinner with possible number of children
         numberofchildrenSpinner = (Spinner) findViewById(R.id.childrenNumberSpinner);
-        Integer[] numbers = new Integer[]{0,1,2,3,4,5,6,7,8,9,10};
+        Integer[] numbers = new Integer[]{1,2,3,4,5,6,7,8,9,10};
         final ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, numbers);
         numberofchildrenSpinner.setAdapter(adapter);
 
 
-
-        //add listener to spinner
-        numberofchildrenSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            Button b = findViewById(R.id.parentSignupSubmit);
-
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(adapterView.getItemAtPosition(i).equals(0)){
-                    b.setText(getResources().getString(R.string.signup));
-                    b.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-
-                        }
-                    });
-                }
-                else{
-                    b.setText(getResources().getString(R.string.addStudents));
-                    b.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                b.setEnabled(false);
-            }
-        });
-
     }
 
-
-    public void signUpParent(){
-
-    }
     public void signup(View view) {
         //gettings strings of all input values
         String fname = firstname.getText().toString();
@@ -134,58 +97,34 @@ public class RegisterParentActivity extends AppCompatActivity implements Callbac
 
     }
 
+    public void signUpParent(){
+
+    }
+
+    public void signupStudents(){
+        int n = this.numberChildren;
+        while(n > 0){
+
+        }
+    }
+
+
     @Override
     public void processData(String code, String data) {
-        //Toast.makeText(this, "Result: " + data, Toast.LENGTH_LONG).show();
-        //Log.d("datafromasync", data);
-        if(data.equals("true")){
-            this.testTxt.setText("Your email is already in use");
-        }
-        else{
-            this.testTxt.setText("You can sign up");
-
-            Log.d("numchildren", ""+this.numberChildren);
-
-
-            if(this.numberChildren > 0){
-                Log.d("nbchildrenGT0", ""+this.numberChildren);
-                intentStudentRegistration.putExtra("parent", parent);
-
-                //delete this part once it works
-                Parent parentfromintent = (Parent)intentStudentRegistration.getExtras().get("parent");
-                Log.d("studentregputextra", parentfromintent.getEmailaddress());
-                //loop over number of children
-                //open children sign up activity
-                //get children and add it to intent
-                //once loop is over, add the parent and every child to the database
-                //and go to Confirmation activity
-
-                //for(int i = 0; i < nbchildren; i++){
-                    //Log.d("startactivityloop", ""+i);
-                    startActivityForResult(intentStudentRegistration, 1);
-                //}
-                //add the students arraylist to the finish registration intent
-                //this.intentFinishRegistration.putExtra("parent", parent);
-                //this.intentFinishRegistration.putExtra("studentList", students);
-                //start finish registration activity
-                //startActivity(intentFinishRegistration);
-
+        //handling data from the exits task
+        if(code.equals("CheckExistsTask")){
+            if(data.equals("true")){
+                this.testTxt.setText("Your email is already in use");
             }
             else{
-                Log.d("else", "else, number children = 0");
-                //finish registration process
+                this.testTxt.setText("You can sign up");
+
+                Log.d("numchildren", ""+this.numberChildren);
+
             }
         }
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent returnData) {
 
-        Toast.makeText(this, "child info was registered", Toast.LENGTH_LONG).show();
-        Bundle bundle = returnData.getExtras();
-        Student student = (Student) bundle.get("student");
-        Log.d("registeredstudent", student.getFirstname());
-        if(resultCode == RESULT_OK){
-            students.add((Student)bundle.get("student"));
-        }
+
     }
+
 }
