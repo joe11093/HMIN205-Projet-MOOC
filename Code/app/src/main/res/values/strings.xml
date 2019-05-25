@@ -14,7 +14,7 @@
     <string name="student">Student</string>
     <string name="btnNext">Next</string>
     <string name="welcomeTitle">Welcome to MOOC</string>
-    <string name="slogan">For a successful academic life</string>
+    <string name="slogan">   For a successful academic life</string>
     <string name="login">Log In</string>
     <string name="signup">Sign Up</string>
     <string name="logout">Log out</string>

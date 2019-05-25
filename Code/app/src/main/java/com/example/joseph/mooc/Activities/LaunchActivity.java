@@ -30,12 +30,24 @@ public class LaunchActivity extends AppCompatActivity {
         //check SharedPreferences to see if user is logged in
         SharedPreferences prefs = getSharedPreferences(GlobalProperties.login_sharedpreferences, MODE_PRIVATE);
         String loggedInId = prefs.getString("id", null);
-
+        String type_user = prefs.getString("type", null).trim();
+        type_user = type_user.replace("\n", "");
+        type_user = type_user.replace("\0", "");
         if(loggedInId != null){
             Log.d("loggedinId", loggedInId);
             Toast.makeText(this, "A USER IS LOGGED IN", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, UserProfileActivity.class);
-            startActivity(intent);
+            Intent intent;
+
+            Log.d("LaunchActivity", "size type: "+"student".length());
+            Log.d("LaunchActivity","size type prefs: "+type_user.trim().length());
+
+            if(type_user.contains("student")){
+                intent = new Intent(this, HomeStudent.class);
+                startActivity(intent);
+            }else if(type_user.equals("parent")){
+                intent = new Intent(this, HomeParent.class);
+                startActivity(intent);
+            }
         }
         else{
             Toast.makeText(this, "NO ONE IS LOGGED IN", Toast.LENGTH_LONG).show();

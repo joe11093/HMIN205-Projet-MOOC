@@ -17,7 +17,7 @@
         android:id="@+id/imageSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/success" />
+        app:srcCompat="@drawable/progress" />
 
     <Button
         android:id="@+id/button2"

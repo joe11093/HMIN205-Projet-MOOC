@@ -27,10 +27,10 @@ import java.nio.charset.Charset;
  * Created by josep on 4/28/2019.
  */
 
-public class LoginAsyncClass extends AsyncTask<Login, Void, String> {
+public class LoginAsyncTask extends AsyncTask<Login, Void, String> {
 
     Callback cb;
-    public LoginAsyncClass(Callback cb) {
+    public LoginAsyncTask(Callback cb) {
         this.cb = cb;
         Log.d("logintask", "Started the login asynctask");
     }

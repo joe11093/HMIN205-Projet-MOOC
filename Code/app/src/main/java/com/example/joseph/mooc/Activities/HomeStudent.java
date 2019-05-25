@@ -1,5 +1,7 @@
 package com.example.joseph.mooc.Activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -9,17 +11,32 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.R;
 
 public class HomeStudent extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawer;
+    private SharedPreferences prefs;
+    private TextView txt_name;
+    private TextView txt_email;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_student);
+
+        prefs = this.getSharedPreferences(GlobalProperties.login_sharedpreferences, Context.MODE_PRIVATE);
+        String header_name = prefs.getString("name", null);
+        String header_email = prefs.getString("email", null);
+        txt_name = findViewById(R.id.nav_header_name);
+        txt_name.setText(header_name);
+        txt_email = findViewById(R.id.nav_header_email);
+        txt_email.setText(header_email);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
