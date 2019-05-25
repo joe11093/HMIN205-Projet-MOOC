@@ -49,7 +49,8 @@ CREATE TABLE VIDEO_DE_COURS(
     chapitre int,
     titre varchar(255),
     url varchar(512),
-    matiere_annee_id int REFERENCES matiere_annee(id),
+    matiere_id int REFERENCES matiere(id),
+    annee_id int REFERENCES annee_scolaire(id),
     fiche_de_revision_id int REFERENCES fiche_de_revision(id),
     PRIMARY KEY(id)
 );
@@ -122,3 +123,8 @@ INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_annee_id, fiche
 
 INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_annee_id, fiche_de_revision_id) VALUES (2, 2, " La phrase verbale et la phrase non verbale", "<h2>La phrase verbale</h2><p>On appelle phrase verbale une phrase qui s'organise autour d'un verbe. On appelle ce verbe le noyau de la phrase.
 </p><p><b>Exemple:</b> Il a neigé aujourd'hui.</p><p>Une phrase verbale peut comporter plusieurs noyaux verbaux.</p><p><b>Exemple:</b> Il a neigé aujourd'hui, mais la météo annonce qu'il fera beau demain.</p><h2>La phrase non verbale</h2><p>On appelle phrase non verbale une phrase qui est organisée autour d'autres éléments que le verbe. Son noyau peut être de différentes natures.</p><br /><p><b>Un nom</b><br />On parle alors de phrase nominale.</p>",1,2);
+
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Le Fantastique", "https://www.youtube.com/watch?v=EdlJPmSmzBw", 1,1);
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (2, "Sunjonctif en Francais: Conjugation", "https://www.youtube.com/watch?v=50wuiuvRBcQ", 1,1);
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Les principales figures de style", "https://www.youtube.com/watch?v=Q531IoDRUrQ", 1,2);
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Comparatif de supériorité en anglais", "https://www.youtube.com/watch?v=K_G4oBl7_dw", 2, 1);
