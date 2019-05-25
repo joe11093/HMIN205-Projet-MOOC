@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -18,11 +19,14 @@ import com.example.joseph.mooc.Fragments.QcmListFragment;
 import com.example.joseph.mooc.Fragments.QuestionsReponsesListeFragments;
 import com.example.joseph.mooc.Fragments.VideoListFragment;
 import com.example.joseph.mooc.Helper.GlobalProperties;
+import com.example.joseph.mooc.Models.Matiere;
 import com.example.joseph.mooc.R;
 
 public class MatiereActivity extends AppCompatActivity {
-    String matiere;
-    String annee_id;
+    /*String matiere;
+    String matiere_id;
+    String annee_id_of_matiere;*/
+    public Matiere matiere;
     TextView matiereTv;
 
     @Override
@@ -32,15 +36,19 @@ public class MatiereActivity extends AppCompatActivity {
 
         this.matiereTv = findViewById(R.id.testMatiereFromRecycler);
         Bundle bundle = getIntent().getExtras();
-        this.matiere = bundle.getString("matiere");
+        this.matiere = (Matiere) bundle.get("matiere");
 
-        SharedPreferences prefs = getSharedPreferences(GlobalProperties.login_sharedpreferences, MODE_PRIVATE);
-        this.annee_id = prefs.getString("annee_id", null);
+        /*this.matiere = bundle.getString("matiere");
+        this.matiere_id = bundle.getString("matiere_id");
+        this.annee_id_of_matiere = bundle.getString("annee_id_of_matiere");*/
+
+        //SharedPreferences prefs = getSharedPreferences(GlobalProperties.login_sharedpreferences, MODE_PRIVATE);
+        //this.annee_id = prefs.getString("annee_id", null);
 
         this.matiereTv.setGravity(Gravity.CENTER);
         this.matiereTv.setTextSize(50);
-        this.matiereTv.setText(this.matiere);
-
+        this.matiereTv.setText("ID OF MATIERE: " + this.matiere.getId() + " MATIERE: " + this.matiere.getTitre() + " DE L'ANNEE " + this.matiere.getAnnee_id());
+        Log.d("MatiereActivity", "MatiereID : " + this.matiere.getId() + " AnneeId : " + this.matiere.getAnnee_id());
 
     }
 

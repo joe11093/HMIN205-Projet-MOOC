@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.joseph.mooc.Helper.DBMooc;
 import com.example.joseph.mooc.Interfaces.Callback;
+import com.example.joseph.mooc.Models.Matiere;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,42 +22,42 @@ import java.net.URL;
 import java.nio.charset.Charset;
 
 /**
- * Created by josep on 5/22/2019.
- *
- * Takes the ID of the annee scolaire as a string parameter (from shared preferences)
- * Returns a JSON containing all annee scholaires
+ * Created by josep on 5/25/2019.
  */
 
-public class GetMatiereOfAnneeScolaireTask extends AsyncTask<String, Void, String> {
+public class VideoListOfMatiereAnneeAsyncTask extends AsyncTask<Matiere, Void, String> {
 
     Callback cb;
-    String id;
+    Matiere matiere;
 
-    public GetMatiereOfAnneeScolaireTask(Callback cb) {
+    public VideoListOfMatiereAnneeAsyncTask(Callback cb) {
         this.cb = cb;
     }
 
     @Override
-    protected String doInBackground(String... strings) {
+    protected String doInBackground(Matiere... matieres) {
         Log.d("VideoListMatiereTask", "staring doInBackground");
-        String path = DBMooc.baseUrl + "get_all_matiere_of_annee.php";
-        this.id = strings[0];
-        Log.d("VideoListMatiereTask", "Received annee ID: " + this.id);
+        String path = DBMooc.baseUrl + "get_all_videos_matiere_annee.php";
+        this.matiere = matieres[0];
+        Log.d("VideoListMatiereTask", "Received matiere ID: " + this.matiere.getId() + "Annee ID: " + this.matiere.getAnnee_id());
+
         String data = "";
-        if (this.id != null) {
+        if (this.matiere != null) {
             try {
                 URL url = new URL(path);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
-                Log.d("VideoListMatiereTask", "connecction is opened");
+                Log.d("VideoListMatiereTask", "connection is opened");
                 OutputStream os = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
                 Log.d("VideoListMatiereTask", "Got the ouput stream");
 
                 JSONObject json = new JSONObject();
-                data = "{\"annee_id\":"+this.id + "}";
+                json.put("annee_id", this.matiere.getAnnee_id());
+                json.put("matiere_id", this.matiere.getId());
+                data = json.toString();
                 Log.d("VideoListMatiereTask", "jsontostring: " + data);
 
                 bufferedWriter.write(data);
@@ -86,22 +87,18 @@ public class GetMatiereOfAnneeScolaireTask extends AsyncTask<String, Void, Strin
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            }// catch (JSONException e) {
-             //   e.printStackTrace();
-            //}
+            } catch (JSONException e) {
+               e.printStackTrace();
+            }
 
         }
         return null;
     }
 
-
     @Override
     protected void onPostExecute(String s) {
-        Log.d("VideoListMatiereTask", "onPostExecute");
-        Log.d("VideoListMatiereTask", "result: " + s);
-
         super.onPostExecute(s);
-        this.cb.processData("VideoListMatiereTask",s);
+        Log.d("VideoListMatiereTask", "OnPostExecute: " + s);
+        this.cb.processData("VideoListMatiereTask", s);
     }
-
 }

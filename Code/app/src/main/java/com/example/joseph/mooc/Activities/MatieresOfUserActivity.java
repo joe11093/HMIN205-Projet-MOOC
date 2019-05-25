@@ -2,17 +2,13 @@ package com.example.joseph.mooc.Activities;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.telecom.Call;
 import android.util.Log;
-import android.view.View;
 
 import com.example.joseph.mooc.BackgroundTasks.GetMatiereOfAnneeScolaireTask;
 import com.example.joseph.mooc.Helper.GlobalProperties;
@@ -26,7 +22,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MatieresOfUserActivity extends AppCompatActivity implements Callback{
     RecyclerView recyclerView;
@@ -55,27 +50,28 @@ public class MatieresOfUserActivity extends AppCompatActivity implements Callbac
     public void initializeRecyclerView(){
         //init recyclerview with the matierearrayadapter
         this.recyclerView = findViewById(R.id.recyclerMatieres);
-        MatiereArrayAdapter matiereArrayAdapter = new MatiereArrayAdapter(R.layout.list_item, this.listMatieres);
+        MatiereArrayAdapter matiereArrayAdapter = new MatiereArrayAdapter(R.layout.matiere_list_item, this.listMatieres);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider));
+        recyclerView.addItemDecoration(itemDecorator);
         recyclerView.setAdapter(matiereArrayAdapter);
 
 
     }
     @Override
     public void processData(String code, String data) {
-        if(code.equals("getmatiereanneeTask")){
-            if(!data.equals("no_results")){
+        if(code.equals("VideoListMatiereTask")){
+            if(!data.equals("no_results") && !data.equals("error")){
                 try {
                     JSONArray jsonArray = new JSONArray(data);
                     for(int i =  0; i < jsonArray.length(); i++){
                         JSONObject matiere = jsonArray.getJSONObject(i);
-                        this.listMatieres.add(new Matiere(matiere.getInt("id"), matiere.getString("titre"), this.annee_id));
+                        this.listMatieres.add(new Matiere(matiere.getString("id"), matiere.getString("titre"),  matiere.getString("annee_id")));
                     }
-                    Log.d("UserProfileActivity", "getmatiereanneetask: printing first element of returned json: " + listMatieres.get(0).getId() + ": " +  listMatieres.get(0).getTitre());
+                    Log.d("UserProfileActivity", "VideoListMatiereTask: printing first element of returned json: " + listMatieres.get(0).getId() + ": " +  listMatieres.get(0).getTitre());
 
                     initializeRecyclerView();
                 } catch (JSONException e) {
