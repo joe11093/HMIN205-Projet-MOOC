@@ -5,12 +5,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.joseph.mooc.Fragments.FicheDeCoursListFragment;
+import com.example.joseph.mooc.Fragments.QcmListFragment;
+import com.example.joseph.mooc.Fragments.QuestionsReponsesListeFragments;
+import com.example.joseph.mooc.Fragments.VideoListFragment;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.R;
 
@@ -38,4 +44,44 @@ public class MatiereActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 1) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    public void toListVideos(View view) {
+        Fragment fragment = new VideoListFragment();
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.activiteMatiereLayout, fragment).addToBackStack(null).commit();
+    }
+
+    public void toListFicheDeCours(View view) {
+        Fragment fragment = new FicheDeCoursListFragment();
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.activiteMatiereLayout, fragment).addToBackStack(null).commit();
+    }
+
+    public void toListQCM(View view) {
+        Fragment fragment = new QcmListFragment();
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.activiteMatiereLayout, fragment).addToBackStack(null).commit();
+    }
+
+    public void toListQuestionsReponses(View view) {
+        Fragment fragment = new QuestionsReponsesListeFragments();
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.activiteMatiereLayout, fragment).addToBackStack(null).commit();
+    }
 }

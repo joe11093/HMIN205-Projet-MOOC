@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/activiteMatiereLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
@@ -19,20 +20,22 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/btnFicheDeCours"
+                android:id="@+id/btnListVideos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/material_lime_100"
                 android:layout_weight="1.0"
-                android:text="@string/fichesDeCours" />
+                android:onClick="toListVideos"
+                android:text="@string/presentations" />
 
             <Button
-                android:id="@+id/btnFicheDeRevision"
+                android:id="@+id/btnListFicheCours"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/material_green_100"
                 android:layout_weight="1.0"
-                android:text="@string/fichesDeRevision" />
+                android:onClick="toListFicheDeCours"
+                android:text="@string/fichesDeCours" />
 
         </LinearLayout>
 
@@ -43,20 +46,22 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/btnPresentation"
+                android:id="@+id/btnListQCM"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/material_red_050"
                 android:layout_weight="1.0"
-                android:text="@string/presentations" />
+                android:onClick="toListQCM"
+                android:text="@string/QCM" />
 
             <Button
-                android:id="@+id/btnQCM"
+                android:id="@+id/btnListQuestionsReponse"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/material_blue_100"
                 android:layout_weight="1.0"
-                android:text="@string/QCM" />
+                android:onClick="toListQuestionsReponses"
+                android:text="@string/questions_reponse" />
 
         </LinearLayout>
     </LinearLayout>
