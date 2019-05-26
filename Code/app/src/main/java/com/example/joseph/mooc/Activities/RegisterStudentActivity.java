@@ -100,7 +100,6 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
             //Log.d("afterexecute", "afterexecute");
         }
 
-
     }
 
     public void fillSpinner(String spinner_type){
@@ -152,6 +151,9 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
                     //execute signup task
                     SignupBackgroundTask signupBackgroundTask = new SignupBackgroundTask(this);
                     signupBackgroundTask.execute(student);
+
+                    Intent intent = new Intent(this, LaunchActivity.class);
+                    startActivity(intent);
                 }
                 else{
                     //student with parent
@@ -162,7 +164,7 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         }
 
         //if result is from signup task
-        else if(code.equals("SignupTask")){
+        else if(code.equals("signuptask")){
             Log.d("StudentRegistration", "process data: Signup task");
             Log.d("StudentRegistration", "code= " + code + " data = " + data);
             if(data.equals("true")){
