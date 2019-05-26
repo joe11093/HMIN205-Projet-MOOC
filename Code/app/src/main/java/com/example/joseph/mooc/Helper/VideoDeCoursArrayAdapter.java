@@ -1,6 +1,7 @@
 package com.example.joseph.mooc.Helper;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.joseph.mooc.Activities.MatiereActivity;
+import com.example.joseph.mooc.BackgroundTasks.AddActivityToDBTask;
+import com.example.joseph.mooc.Models.ActivityDB;
 import com.example.joseph.mooc.Models.Matiere;
 import com.example.joseph.mooc.Models.Video;
 import com.example.joseph.mooc.R;
@@ -77,8 +80,16 @@ public class VideoDeCoursArrayAdapter extends RecyclerView.Adapter<VideoDeCoursA
         public void onClick(View view) {
             Log.d("videoarrayadapter", "onClick " + getLayoutPosition() + " " + videoTitre.getText());
             Intent intent =new Intent(Intent.ACTION_VIEW, Uri.parse(videoURL.getText().toString()));
-
             Log.d("videoarrayadapter", "URL of the video: " + this.videoURL.getText().toString());
+            //add activity to db
+            SharedPreferences prefs =   view.getContext().getSharedPreferences(GlobalProperties.login_sharedpreferences, view.getContext().MODE_PRIVATE);
+            String user_id = prefs.getString("id", null);
+            String vid_id = this.videoId.getText().toString();
+            String type = "video";
+            String act_text = view.getContext().getResources().getString(R.string.activityVideoTextMessage) + " " + this.videoTitre.getText().toString();
+            ActivityDB act = new ActivityDB(user_id, type, vid_id, act_text);
+            AddActivityToDBTask addActDb = new AddActivityToDBTask();
+            addActDb.execute(act);
             view.getContext().startActivity(intent);
 
         }

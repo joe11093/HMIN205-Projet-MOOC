@@ -29,7 +29,8 @@
     <string name="QCM">QCM</string>
     <string name="questions_reponse">Questions-Reponses</string>
     <string name="btnToQCM">Pass the Quiz</string>
-
+    <string name="activityVideoTextMessage">You watched the video</string>
+    <string name="activityFicheTextMessage">You read the document</string>
     <!-- for the theme -->
     <!-- Home -->
     <string name="home_tab_xml">XML</string>
