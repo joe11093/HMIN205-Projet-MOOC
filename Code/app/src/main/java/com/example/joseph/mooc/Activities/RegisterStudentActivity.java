@@ -162,7 +162,7 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         }
 
         //if result is from signup task
-        else if(code.equals("signuptask")){
+        else if(code.equals("SignupTask")){
             Log.d("StudentRegistration", "process data: Signup task");
             Log.d("StudentRegistration", "code= " + code + " data = " + data);
             if(data.equals("true")){

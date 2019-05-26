@@ -126,7 +126,7 @@ INSERT INTO utilisateur (firstname, lastname, dateofbirth, email, password, city
 INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (1,'4eme');
 INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (2,'3eme');
 
-INSERT INTO matiere(id, titre) VALUES (1, "Français");
+INSERT INTO matiere(id, titre) VALUES (1, "Francais");
 INSERT INTO matiere(id, titre) VALUES (2, "Anglais");
 INSERT INTO matiere(id, titre) VALUES (3, "Histoire");
 

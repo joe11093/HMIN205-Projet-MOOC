@@ -8,6 +8,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +29,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by josep on 5/25/2019.
+ * Created by josep on 5/26/2019.
  */
 
-public class QcmListFragment extends Fragment implements Callback {
+public class QuizListFragment extends Fragment implements Callback{
     MatiereActivity calling_activity;
     Matiere matiere;
     RecyclerView qcmRecycler;
