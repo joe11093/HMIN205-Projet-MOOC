@@ -96,6 +96,7 @@ CREATE TABLE ACTIVITE(
     id int AUTO_INCREMENT,
     user_id int REFERENCES user(id),
     type varchar(255),
+    ref int,
     date Date,
     time Time,
     activite_text varchar(255),
