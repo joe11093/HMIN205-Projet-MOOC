@@ -18,5 +18,6 @@ public class HomeStudentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home_student, container, false);
         getActivity().setTitle("HOME");
 
-        return view;    }
+        return view;
+    }
 }

@@ -6,83 +6,23 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="splitarray" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db0eb285-0d71-45ac-9d85-e28b3f9784fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatiereActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatieresOfUserActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/AddActivityToDBTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/CoursListOfMatiereAnneeAsync.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/FicheDeCoursListMatiereAnneeAsyncTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/GetAllTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/GetMatiereOfAnneeScolaireTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/VideoListOfMatiereAnneeAsyncTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/FicheDeCoursFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/FicheDeCoursListFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/QcmListFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/QuestionsReponsesListeFragments.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/VideoListFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/FicheDeCoursArrayAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/MatiereArrayAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/VideoDeCoursArrayAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Interfaces/FragmentCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/ActivityDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/FicheDeCours.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/Matiere.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/Video.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/divider.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_black.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_blue.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_green.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_lime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_orange.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_purple.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_red.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_teal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rect_white.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_black.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_blue.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_green.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_lime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_orange.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_purple.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_red.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_teal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_white.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_matiere.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/content_matiere.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/cours_list_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_courslist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_fichedecours.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_qcmlist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_questionsreponseslist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_videolist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/matiere_list_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/video_list_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/CoursesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/CoursesFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudentFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudentFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/BackgroundTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/BackgroundTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/SignupBackgroundTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/SignupBackgroundTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/AnneeScolaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/AnneeScolaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/Parent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/menu/drawer_menu_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/menu/drawer_menu_student.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values-v21/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LaunchActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LaunchActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatieresOfUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatieresOfUserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterStudentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterStudentActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_register_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_register_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_logout_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_logout_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/matiere_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/matiere_list_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documents/DB_CREATE_TABLES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Documents/DB_CREATE_TABLES.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +51,7 @@
     <session id="-590828339">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.44" value="1" />
@@ -127,35 +67,35 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="5" />
-          <entry key="java" value="173" />
+          <entry key="java" value="188" />
           <entry key="jpg" value="2" />
           <entry key="png" value="19" />
-          <entry key="xml" value="268" />
+          <entry key="xml" value="290" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="5" />
           <entry key="Image" value="21" />
-          <entry key="JAVA" value="173" />
-          <entry key="XML" value="268" />
+          <entry key="JAVA" value="188" />
+          <entry key="XML" value="290" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="33" />
           <entry key="gradle" value="3" />
-          <entry key="java" value="3177" />
+          <entry key="java" value="3647" />
           <entry key="txt" value="23" />
-          <entry key="xml" value="3709" />
+          <entry key="xml" value="3907" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="3177" />
+          <entry key="JAVA" value="3647" />
           <entry key="PLAIN_TEXT" value="56" />
-          <entry key="XML" value="3709" />
+          <entry key="XML" value="3907" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -171,103 +111,103 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/CoursesFragment.java">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="84" column="49" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-              <folding>
-                <element signature="e#445#463#0" expanded="true" />
-                <element signature="e#2084#2125#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LoginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="98" column="37" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="37" />
+            <state relative-caret-position="425">
+              <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_fichedecours.xml">
-          <provider editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterStudentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatieresOfUserActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="65" column="44" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="44" />
+            <state relative-caret-position="187">
+              <caret line="141" column="46" lean-forward="true" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="46" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#7591#7620#0" expanded="true" />
+                <element signature="e#7727#7785#0" expanded="true" />
+                <element signature="e#8002#8028#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/GetMatiereOfAnneeScolaireTask.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudentFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="45" column="57" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
+            <state relative-caret-position="221">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/LoginAsyncTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-650">
-              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/DBMooc.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register_student.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+            <state relative-caret-position="318">
+              <caret line="113" column="46" selection-start-line="113" selection-start-column="46" selection-end-line="113" selection-end-column="46" />
+              <folding>
+                <element signature="e#1771#1790#0" expanded="true" />
+                <element signature="e#2198#2216#0" expanded="true" />
+                <element signature="e#2619#2640#0" expanded="true" />
+                <element signature="e#2938#2960#0" expanded="true" />
+                <element signature="e#3263#3281#0" expanded="true" />
+                <element signature="e#3576#3590#0" expanded="true" />
+                <element signature="e#3890#3907#0" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LaunchActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="41" column="31" lean-forward="true" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/AnneeScolaireArrayAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-300">
+              <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/ProfileStudentFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_signup_background_task.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -302,10 +242,18 @@
       <find>splitarray</find>
       <find>slogan</find>
       <find>.com</find>
-      <find>nav</find>
       <find>selectableRectDrawable</find>
       <find>setC</find>
       <find>VideoListMatiereTask</find>
+      <find>lime</find>
+      <find>styl</find>
+      <find>onNavigationItemSelected</find>
+      <find>onBackPressed</find>
+      <find>nav</find>
+      <find>nav_view</find>
+      <find>drawer_layout_</find>
+      <find>drawer_layout_student</find>
+      <find>nav_vi</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -322,15 +270,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudentFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/res/menu/drawer_menu_student.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatieresOfUserActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/MatiereArrayAdapter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatiereActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/FicheDeCoursFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/FicheDeCoursListFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/QcmListFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/QuestionsReponsesListeFragments.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/VideoListFragment.java" />
@@ -358,9 +297,7 @@
         <option value="$PROJECT_DIR$/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/attrs.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/video_list_item.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/matiere_list_item.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/cours_list_item.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/content_matiere.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_courslist.xml" />
@@ -369,10 +306,21 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_videolist.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/FicheDeCoursArrayAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/CoursesFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudent.java" />
-        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/GetMatiereOfAnneeScolaireTask.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_fichedecours.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_home_student.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/matiere_list_item.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudentFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_logout_student.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudent.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatieresOfUserActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_register_student.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LaunchActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterStudentActivity.java" />
       </list>
     </option>
   </component>
@@ -428,7 +376,7 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="mooc" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="BackgroundTasks" type="462c0819:PsiDirectoryNode" />
+              <item name="Fragments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Code" type="1abcf292:AndroidViewProjectNode" />
@@ -447,6 +395,25 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Code" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Code" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Code" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="styles" type="c431d0b8:AndroidResGroupNode" />
             </path>
           </expand>
           <select />
@@ -755,10 +722,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.502947" side_tool="true" weight="0.21331316" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49705306" visible="true" weight="0.24054463" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49705306" visible="true" weight="0.21331316" />
       <window_info id="Structure" order="2" sideWeight="0.5013928" side_tool="true" weight="0.25945538" />
       <window_info id="Favorites" order="3" sideWeight="0.5013928" side_tool="true" weight="0.25945538" />
       <window_info id="Build Variants" order="4" sideWeight="0.5013928" side_tool="true" weight="0.25945538" />
@@ -767,16 +733,16 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Inspection Results" order="0" sideWeight="0.49848714" weight="0.3295082" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4969743" weight="0.5868853" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.77231467" weight="0.2590164" />
-      <window_info anchor="bottom" id="Logcat" order="3" sideWeight="0.83736765" visible="true" weight="0.38688526" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.77080184" weight="0.16393442" />
+      <window_info anchor="bottom" id="Logcat" order="3" sideWeight="0.8366112" weight="0.4409836" />
       <window_info anchor="bottom" id="TODO" order="4" sideWeight="0.49621785" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="5" />
       <window_info anchor="bottom" id="Android Profiler" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49546143" weight="0.3295082" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.16263238" side_tool="true" visible="true" weight="0.38688526" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.1633888" side_tool="true" weight="0.17868853" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="10" sideWeight="0.8676248" weight="0.6377049" />
-      <window_info active="true" anchor="right" id="Preview" order="0" sideWeight="0.49860725" visible="true" weight="0.24962178" />
+      <window_info anchor="right" id="Preview" order="0" sideWeight="0.49860725" weight="0.27155825" />
       <window_info anchor="right" id="Device File Explorer" order="1" sideWeight="0.5013928" side_tool="true" weight="0.15355521" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.32980332" />
@@ -784,117 +750,39 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Assistant" order="6" weight="0.45612708" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" sideWeight="0.502947" side_tool="true" weight="0.21331316" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49705306" weight="0.21331316" />
+      <window_info id="Structure" order="2" sideWeight="0.5013928" side_tool="true" weight="0.25945538" />
+      <window_info id="Favorites" order="3" sideWeight="0.5013928" side_tool="true" weight="0.25945538" />
+      <window_info id="Build Variants" order="4" sideWeight="0.5013928" side_tool="true" weight="0.25945538" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Inspection Results" order="0" sideWeight="0.49848714" weight="0.3295082" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4969743" weight="0.5868853" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.77080184" weight="0.5754098" />
+      <window_info anchor="bottom" id="Logcat" order="3" sideWeight="0.8366112" weight="0.17868853" />
+      <window_info anchor="bottom" id="TODO" order="4" sideWeight="0.49621785" weight="0.3295082" />
+      <window_info anchor="bottom" id="Debug" order="5" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49546143" weight="0.3295082" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.1633888" side_tool="true" weight="0.17868853" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Build" order="10" sideWeight="0.8676248" weight="0.6377049" />
+      <window_info anchor="right" id="Preview" order="0" sideWeight="0.49860725" visible="true" weight="0.27155825" />
+      <window_info anchor="right" id="Device File Explorer" order="1" sideWeight="0.5013928" side_tool="true" weight="0.15355521" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.32980332" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Assistant" order="6" weight="0.45612708" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Interfaces/FragmentCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/VideoListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1370#1377#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/QuestionsReponsesListeFragments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Fragments/QcmListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/ic_menu_child.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/ic_menu_logout.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable-v24/ic_launcher_foreground.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-hdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-xxxhdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-xhdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-xxhdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-mdpi/ic_launcher_round.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-xhdpi/ic_launcher_round.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-xxhdpi/ic_launcher_round.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/divider.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/state_list_selectable_rounded_rect_black.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1326" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -906,13 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-749">
           <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6613">
-          <caret line="425" column="8" selection-start-line="425" selection-start-column="8" selection-end-line="425" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -936,17 +817,6 @@
             <element signature="e#1239#1240#0" expanded="true" />
             <element signature="e#1300#1301#0" expanded="true" />
             <element signature="e#4043#4120#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/matiere_list_item.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-          <folding>
-            <element signature="e#461#488#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1072,14 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/CoursesFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1087,53 +949,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-          <folding>
-            <element signature="e#445#463#0" expanded="true" />
-            <element signature="e#2084#2125#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="84" column="49" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatieresOfUserActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="65" column="44" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/DBMooc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/GetMatiereOfAnneeScolaireTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="45" column="57" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/LoginAsyncTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-650">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1147,8 +966,228 @@
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_fichedecours.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
+        <state relative-caret-position="213">
+          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-core-ui/26.1.0/4d52cef4a24bf9939de1d256ca9f0974c6e636a4/support-core-ui-26.1.0-sources.jar!/android/support/v4/widget/DrawerLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="993" selection-start-line="993" selection-end-line="993" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_children.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/LoginAsyncTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-650">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/BackgroundTasks/GetMatiereOfAnneeScolaireTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="45" column="57" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_home_parent.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/matiere_list_item.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
           <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_profile_student.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_logout_parent.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_logout_student.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LogoutStudentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeParentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/nav_header.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_home_student.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/MatieresOfUserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+          <folding>
+            <element signature="e#2695#2726#0" expanded="true" />
+            <element signature="e#2728#2760#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="54" column="66" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_home_student.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/menu/drawer_menu_student.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_matieres_of_user.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_signup_background_task.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register_student.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="113" column="46" selection-start-line="113" selection-start-column="46" selection-end-line="113" selection-end-column="46" />
+          <folding>
+            <element signature="e#1771#1790#0" expanded="true" />
+            <element signature="e#2198#2216#0" expanded="true" />
+            <element signature="e#2619#2640#0" expanded="true" />
+            <element signature="e#2938#2960#0" expanded="true" />
+            <element signature="e#3263#3281#0" expanded="true" />
+            <element signature="e#3576#3590#0" expanded="true" />
+            <element signature="e#3890#3907#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/HomeStudentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/LaunchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="41" column="31" lean-forward="true" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Helper/AnneeScolaireArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/ProfileStudentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/joseph/mooc/Activities/RegisterStudentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="141" column="46" lean-forward="true" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="46" />
+          <folding>
+            <element signature="e#7591#7620#0" expanded="true" />
+            <element signature="e#7727#7785#0" expanded="true" />
+            <element signature="e#8002#8028#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

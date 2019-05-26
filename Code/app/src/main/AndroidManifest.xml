@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/BaseTheme.Blue">
         <activity android:name=".Activities.HomeParent"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -43,8 +43,8 @@
         <activity android:name=".Activities.MatiereActivity" />
         <activity
             android:name=".Activities.MatieresOfUserActivity"
-            android:label="@string/title_activity_matieres_of_user"
-            android:theme="@style/AppTheme.Lime"></activity>
+            android:label="@string/title_activity_matieres_of_user">
+        </activity>
     </application>
 
 </manifest>

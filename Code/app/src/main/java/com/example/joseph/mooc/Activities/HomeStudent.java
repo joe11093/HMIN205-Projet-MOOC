@@ -60,10 +60,13 @@ public class HomeStudent extends AppCompatActivity implements NavigationView.OnN
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        String target = getIntent().getStringExtra("target");
+        Log.d("HOMESTRUDENT", "target_1 "+target);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeStudentFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_home_parent);
+            navigationView.setCheckedItem(R.id.nav_home_student);
         }
     }
 
@@ -82,6 +85,7 @@ public class HomeStudent extends AppCompatActivity implements NavigationView.OnN
                         new ProfileStudentFragment()).commit();
                 break;
             case R.id.nav_teaching_student:
+                //getSupportFragmentManager().beginTransaction().remove()
                 intent = new Intent(this, MatieresOfUserActivity.class);
                 startActivity(intent);
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
