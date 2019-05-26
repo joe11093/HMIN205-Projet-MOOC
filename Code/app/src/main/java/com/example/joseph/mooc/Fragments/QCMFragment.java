@@ -24,6 +24,7 @@ public class QCMFragment extends Fragment {
     Matiere matiere;
     QCM qcm;
     TextView QCMTitre;
+    TextView QCMid;
 
 
     @Override
@@ -40,8 +41,10 @@ public class QCMFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_qcm, container, false);
-        this.QCMTitre = view.findViewById(R.id.qcmTitre);
+        this.QCMTitre = view.findViewById(R.id.qcmQuizTitre);
+        this.QCMid = view.findViewById(R.id.qcmQuizId);
         QCMTitre.setText(this.qcm.getTitre());
+        QCMid.setText(this.qcm.getId());
         return view;
     }
 }
