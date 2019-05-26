@@ -23,14 +23,19 @@
     <string name="signupFailMessage">Signup was unsuccessful</string>
     <string name="afterSignupLoginMessage">Signin with your newly created account</string>
     <string name="addStudents">Add Students</string>
-    <string name="fichesDeCours">Fiche de Cours</string>
+    <string name="ficheDeCours">Fiche de Cours</string>
+    <string name="fichesDeCours">Fiches de Cours</string>
+    <string name="fichesDeRevision">Fiches de Revision</string>
     <string name="presentations">Presentations Videos</string>
-    <string name="fichesDeRevision">Fichs de Revision</string>
     <string name="QCM">QCM</string>
+    <string name="QCMs">QCMs</string>
     <string name="questions_reponse">Questions-Reponses</string>
     <string name="btnToQCM">Pass the Quiz</string>
     <string name="activityVideoTextMessage">You watched the video</string>
     <string name="activityFicheTextMessage">You read the document</string>
+    <string name="activityQCMTextMessage">You read the document</string>
+
+
     <!-- for the theme -->
     <!-- Home -->
     <string name="home_tab_xml">XML</string>

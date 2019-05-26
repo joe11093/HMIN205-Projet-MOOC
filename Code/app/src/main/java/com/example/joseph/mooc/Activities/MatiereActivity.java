@@ -24,6 +24,7 @@ import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.FragmentCallback;
 import com.example.joseph.mooc.Models.FicheDeCours;
 import com.example.joseph.mooc.Models.Matiere;
+import com.example.joseph.mooc.Models.QCM;
 import com.example.joseph.mooc.R;
 
 public class MatiereActivity extends AppCompatActivity implements FragmentCallback{
@@ -32,6 +33,7 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     String annee_id_of_matiere;*/
     public Matiere matiere;
     public FicheDeCours ficheDeCours;
+    public QCM qcm;
     TextView matiereTv;
 
     @Override
@@ -61,6 +63,9 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     public void setFicheDeCours(FicheDeCours ficheDeCours){
         this.ficheDeCours = ficheDeCours;
     }
+    public void setQCM(QCM qcm){
+        this.qcm = qcm;
+    }
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
@@ -87,6 +92,7 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     }
 
     public void toListQCM(View view) {
+        Log.d("MatiereActivity", "toListQCM");
         Fragment fragment = new QcmListFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

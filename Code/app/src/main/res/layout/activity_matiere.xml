@@ -54,7 +54,7 @@
                 android:background="@color/material_red_050"
                 android:layout_weight="1.0"
                 android:onClick="toListQCM"
-                android:text="@string/QCM" />
+                android:text="@string/QCMs" />
 
             <Button
                 android:id="@+id/btnListQuestionsReponse"
