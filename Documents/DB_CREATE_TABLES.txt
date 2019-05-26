@@ -67,9 +67,25 @@ CREATE TABLE FICHE_DE_REVISION(
 
 CREATE TABLE QCM(
     id int AUTO_INCREMENT,
-    matiere_annee_id int REFERENCES matiere_annee(id),
+    titre varchar(255),
+    type_ref varchar(255),
+    matiere_id int REFERENCES annee_scolaire(id),
+    annee_id int REFERENCES annee_scolaire(id),
+    ref int,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE QUESTIONSREPONSESQCM(
+    id int AUTO_INCREMENT,
+    qcm_id int REFERENCES qcm(id),
+    question varchar(255),
+    option1 varchar(255),
+    option2 varchar(255),
+    option3 varchar(255),
+    correct_answer int,
+    PRIMARY KEY(id)
+);
+
 
 CREATE TABLE CONTROLE(
     id int AUTO_INCREMENT,
@@ -130,3 +146,16 @@ INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1,
 INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (2, "Sunjonctif en Francais: Conjugation", "https://www.youtube.com/watch?v=50wuiuvRBcQ", 1,1);
 INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Les principales figures de style", "https://www.youtube.com/watch?v=Q531IoDRUrQ", 1,2);
 INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Comparatif de supériorité en anglais", "https://www.youtube.com/watch?v=K_G4oBl7_dw", 2, 1);
+
+INSERT INTO qcm(titre, type_ref, matiere_id, annee_id, ref) VALUES("Quiz sur les phrases", "fiche", 1, 1, 1);
+INSERT INTO qcm(titre, type_ref, matiere_id, annee_id, ref) VALUES("Quiz sur le Fantastique", "video", 1, 1,  1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 1", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 2", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 3", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 1", "Reponse 1", "Reponse 2", "Reponse 3", 2);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 2", "Reponse 1", "Reponse 2", "Reponse 3", 2); 
