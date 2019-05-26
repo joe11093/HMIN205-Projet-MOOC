@@ -16,6 +16,8 @@ import com.example.joseph.mooc.Activities.MatiereActivity;
 import com.example.joseph.mooc.Models.Matiere;
 import com.example.joseph.mooc.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 
@@ -48,25 +50,35 @@ public class MatiereArrayAdapter extends RecyclerView.Adapter<MatiereArrayAdapte
     // load data in each row element
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int listPosition) {
-        TextView item = holder.item;
-        item.setText(itemList.get(listPosition).getTitre());
+
+        holder.item.setText(itemList.get(listPosition).getTitre());
+        holder.itemId.setText(itemList.get(listPosition).getId());
+        holder.anneeIdOfMatiere.setText(itemList.get(listPosition).getAnnee_id());
 
     }
 
     // Static inner class to initialize the views of rows
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView item;
+        public TextView item, itemId, anneeIdOfMatiere;
         public ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             item = (TextView) itemView.findViewById(R.id.matiereItem);
+            itemId = (TextView) itemView.findViewById(R.id.matiereItemId);
+            anneeIdOfMatiere = (TextView) itemView.findViewById(R.id.anneeIdOfMatiere);
         }
         @Override
         public void onClick(View view) {
             Log.d("matierearrayadapter", "onClick " + getLayoutPosition() + " " + item.getText());
-
+            int pos = getAdapterPosition();
+            Log.d("matiereadapter", ""+pos);
             Intent intent = new Intent(view.getContext(), MatiereActivity.class);
+            Matiere m = new Matiere(itemId.getText().toString(), item.getText().toString(), anneeIdOfMatiere.getText().toString());
+            intent.putExtra("matiere", m);
+            /*
             intent.putExtra("matiere", item.getText());
+            intent.putExtra("matiere_id", itemId.getText());
+            intent.putExtra("annee_id_of_matiere", anneeIdOfMatiere.getText());*/
             view.getContext().startActivity(intent);
         }
     }

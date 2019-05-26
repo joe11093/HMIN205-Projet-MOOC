@@ -76,16 +76,16 @@ public class UserProfileActivity extends AppCompatActivity implements Callback{
 
     @Override
     public void processData(String code, String data) {
-        if(code.equals("getmatiereanneeTask")){
+        if(code.equals("VideoListMatiereTask")){
             if(!data.equals("no_results")){
                 try {
                 JSONArray jsonArray = new JSONArray(data);
                 Matiere[] matiereArray = new Matiere[jsonArray.length()];
                     for(int i =  0; i < jsonArray.length(); i++){
                         JSONObject matiere = jsonArray.getJSONObject(i);
-                        matiereArray[i] = new Matiere(matiere.getInt("id"), matiere.getString("titre"), this.annee_id);
+                        matiereArray[i] = new Matiere(matiere.getString("id"), matiere.getString("titre"), this.annee_id);
                     }
-                    Log.d("UserProfileActivity", "getmatiereanneetask: printing first element of returned json: " + matiereArray[0].getId() + ": " + matiereArray[0].getTitre());
+                    Log.d("UserProfileActivity", "VideoListMatiereTask: printing first element of returned json: " + matiereArray[0].getId() + ": " + matiereArray[0].getTitre());
 
                     //test the results by setting a text view
                     /*
