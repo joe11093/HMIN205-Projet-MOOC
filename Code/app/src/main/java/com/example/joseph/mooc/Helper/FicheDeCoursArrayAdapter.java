@@ -1,6 +1,7 @@
 package com.example.joseph.mooc.Helper;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.joseph.mooc.Activities.MatiereActivity;
+import com.example.joseph.mooc.BackgroundTasks.AddActivityToDBTask;
 import com.example.joseph.mooc.Fragments.FicheDeCoursFragment;
+import com.example.joseph.mooc.Models.ActivityDB;
 import com.example.joseph.mooc.Models.FicheDeCours;
 import com.example.joseph.mooc.R;
 
@@ -87,16 +90,19 @@ public class FicheDeCoursArrayAdapter extends RecyclerView.Adapter<FicheDeCoursA
             Log.d("fichearrayadapter", "Fiche de cours: " + fdc.getTitre());
             Log.d("fichearrayadapter", "Matiere Activity classe: " + mc.getClass().toString() + "matiere id de l'activity: " + mc.matiere.getId());
             mc.setFicheDeCours(fdc);
+
+            //add activity to DB
+            SharedPreferences prefs =   view.getContext().getSharedPreferences(GlobalProperties.login_sharedpreferences, view.getContext().MODE_PRIVATE);
+            String user_id = prefs.getString("id", null);
+            String vid_id = this.coursId.getText().toString();
+            String type = "fichedecours";
+            String act_text = view.getContext().getResources().getString(R.string.activityFicheTextMessage) + " " + this.coursTitre.getText().toString();
+            ActivityDB act = new ActivityDB(user_id, type, vid_id, act_text);
+            AddActivityToDBTask addActDb = new AddActivityToDBTask();
+            addActDb.execute(act);
+
             FicheDeCoursFragment ficheDeCoursFragment = new FicheDeCoursFragment();
             mc.replaceFragment(ficheDeCoursFragment);
-
-            /*
-            FragmentManager fragmentManager = mc.getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.activiteMatiereLayout, ficheDeCoursFragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-            */
         }
     }
 }
