@@ -1,5 +1,6 @@
 package com.example.joseph.mooc.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -107,6 +108,15 @@ public class LoginActivity extends AppCompatActivity implements Callback {
 
                     editor.apply();
                     Log.d("LoginActivity", "Process data for login. Added to shared preferences.");
+
+                    //for testing
+                    String shname = getSharedPreferences(GlobalProperties.login_sharedpreferences, Context.MODE_PRIVATE).getString("firstname", null);
+                    Log.d("LoginActivity", shname);
+
+                    String shemail = getSharedPreferences(GlobalProperties.login_sharedpreferences, Context.MODE_PRIVATE).getString("email", null);
+                    Log.d("LoginActivity", shemail);
+
+
                     Intent intent = new Intent(this, LaunchActivity.class);
                     startActivity(intent);
 

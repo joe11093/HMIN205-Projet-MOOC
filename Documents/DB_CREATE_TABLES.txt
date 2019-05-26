@@ -1,5 +1,5 @@
 CREATE TABLE UTILISATEUR(
-	id int AUTO_INCREMENT,
+    id int AUTO_INCREMENT,
     firstname varchar(255),
     lastname varchar(255),
     dateofbirth DATE,
@@ -23,63 +23,81 @@ CREATE TABLE PARENT(
 );    
 
 CREATE TABLE ANNEE_SCOLAIRE(
-	id int,
+    id int,
     annee_scolaire varchar(50),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE MATIERE(
-	id int,
+    id int,
     titre varchar(255),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE FICHE_DE_COURS(
-	id int AUTO_INCREMENT,
+    id int AUTO_INCREMENT,
     chapitre int,
     titre varchar(255),
     contenu TEXT,
-    matiere_annee_id int REFERENCES matiere_annee(id),
+    matiere_id int REFERENCES annee(id),
+    annee_id int REFERENCES annee_scolaire(id),
     fiche_de_revision_id int REFERENCES fiche_de_revision(id),
     PRIMARY KEY(id)
 );    
 
 CREATE TABLE VIDEO_DE_COURS(
-	id int AUTO_INCREMENT,
+    id int AUTO_INCREMENT,
     chapitre int,
     titre varchar(255),
     url varchar(512),
-    matiere_annee_id int REFERENCES matiere_annee(id),
+    matiere_id int REFERENCES matiere(id),
+    annee_id int REFERENCES annee_scolaire(id),
     fiche_de_revision_id int REFERENCES fiche_de_revision(id),
     PRIMARY KEY(id)
 );
 
 CREATE TABLE FICHE_DE_REVISION(
-	id int AUTO_INCREMENT,
-	chapitre int, 
-	titre varchar(255),
-	matiere_annee_id int REFERENCES matiere_annee(id),
-	contenu TEXT,
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE QCM(
-	id int AUTO_INCREMENT,
-	matiere_annee_id int REFERENCES matiere_annee(id),
+    id int AUTO_INCREMENT,
+    chapitre int, 
+    titre varchar(255),
+    matiere_annee_id int REFERENCES matiere_annee(id),
+    contenu TEXT,
     PRIMARY KEY (id)
 );
 
+CREATE TABLE QCM(
+    id int AUTO_INCREMENT,
+    titre varchar(255),
+    type_ref varchar(255),
+    matiere_id int REFERENCES annee_scolaire(id),
+    annee_id int REFERENCES annee_scolaire(id),
+    ref int,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE QUESTIONSREPONSESQCM(
+    id int AUTO_INCREMENT,
+    qcm_id int REFERENCES qcm(id),
+    question varchar(255),
+    option1 varchar(255),
+    option2 varchar(255),
+    option3 varchar(255),
+    correct_answer int,
+    PRIMARY KEY(id)
+);
+
+
 CREATE TABLE CONTROLE(
-	id int AUTO_INCREMENT,
-	matiere_annee_id int REFERENCES matiere_annee(id),
-	PRIMARY KEY (id)
+    id int AUTO_INCREMENT,
+    matiere_annee_id int REFERENCES matiere_annee(id),
+    PRIMARY KEY (id)
 
 );
 
 CREATE TABLE MATIERE_ANNEE(
     id int AUTO_INCREMENT,
     matiere_id int REFERENCES matiere(id),
-    anneeid_id int REFERENCES annee_scolaire(id),
+    annee_id int REFERENCES annee_scolaire(id),
     PRIMARY KEY (id)
 );
 
@@ -90,6 +108,54 @@ CREATE TABLE STUDENT_MATIERE_ANNEE(
     PRIMARY KEY(id)
 );
 
+CREATE TABLE ACTIVITE(
+    id int AUTO_INCREMENT,
+    user_id int REFERENCES user(id),
+    type varchar(255),
+    ref int,
+    date Date,
+    time Time,
+    activite_text varchar(255),
+    PRIMARY KEY(id)
+);
 
 
-INSERT INTO utilisateur (firstname, lastname, dateofbirth, email, password, city, country, type) VALUES ('joseph', 'lastname', '1993-10-01', 'josephsaba_93@hotmail.com', 'password', 'Bakarzala', 'Lebanon', 'parent');
+
+INSERT INTO utilisateur (firstname, lastname, dateofbirth, email, password, city, country, type) VALUES ('joseph', 'lastname', '1993-10-01', 'josephsaba_93@hotmail.com', 'password', 'Bakarzala', 'Lebanon', 'student');
+
+INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (1,'4eme');
+INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (2,'3eme');
+
+INSERT INTO matiere(id, titre) VALUES (1, "Français");
+INSERT INTO matiere(id, titre) VALUES (2, "Anglais");
+INSERT INTO matiere(id, titre) VALUES (3, "Histoire");
+
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (1, 1, 1);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (2, 2, 1);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (3, 3, 1);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (4, 1, 2);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (5, 2, 2);
+INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (6, 3, 2);
+
+INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_id, annee_id) VALUES (1, 1, " La phrase simple et la phrase complexe", "<h2>L'organisation de la phrase simple et de la phrase complexe</h2><p>La phrase simple contient un seul verbe conjugué, donc une seule proposition (= partie de phrase s’organisant autour d’un verbe conjugué). Celle-ci est indépendante car elle ne dépend d'aucune autre proposition et inversement.</p><p>Exemple :<br />Lancelot est un héros célèbre des romans de chevalerie.<br />Cette phrase est une phrase simple. Cependant, elle ne se limite pas au sujet et au verbe, plusieurs compléments peuvent être ajoutés.La phrase complexe contient plusieurs verbes conjugués, donc plusieurs propositions.</p><p>Exemple :<br />Lancelot est un héros célèbre des romans de chevalerie.<br />Cette phrase est une phrase simple. Cependant, elle ne se limite pas au sujet et au verbe, plusieurs compléments peuvent être ajoutés.La phrase complexe contient plusieurs verbes conjugués, donc plusieurs propositions.</p>",1,1);
+
+INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_id, annee_id) VALUES (2, 2, " La phrase verbale et la phrase non verbale", "<h2>La phrase verbale</h2><p>On appelle phrase verbale une phrase qui s'organise autour d'un verbe. On appelle ce verbe le noyau de la phrase.
+</p><p><b>Exemple:</b> Il a neigé aujourd'hui.</p><p>Une phrase verbale peut comporter plusieurs noyaux verbaux.</p><p><b>Exemple:</b> Il a neigé aujourd'hui, mais la météo annonce qu'il fera beau demain.</p><h2>La phrase non verbale</h2><p>On appelle phrase non verbale une phrase qui est organisée autour d'autres éléments que le verbe. Son noyau peut être de différentes natures.</p><br /><p><b>Un nom</b><br />On parle alors de phrase nominale.</p>",1,2);
+
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Le Fantastique", "https://www.youtube.com/watch?v=EdlJPmSmzBw", 1,1);
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (2, "Sunjonctif en Francais: Conjugation", "https://www.youtube.com/watch?v=50wuiuvRBcQ", 1,1);
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Les principales figures de style", "https://www.youtube.com/watch?v=Q531IoDRUrQ", 1,2);
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Comparatif de supériorité en anglais", "https://www.youtube.com/watch?v=K_G4oBl7_dw", 2, 1);
+
+INSERT INTO qcm(titre, type_ref, matiere_id, annee_id, ref) VALUES("Quiz sur les phrases", "fiche", 1, 1, 1);
+INSERT INTO qcm(titre, type_ref, matiere_id, annee_id, ref) VALUES("Quiz sur le Fantastique", "video", 1, 1,  1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 1", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 2", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 3", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 1", "Reponse 1", "Reponse 2", "Reponse 3", 2);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 2", "Reponse 1", "Reponse 2", "Reponse 3", 2); 

@@ -27,5 +27,19 @@ public class Student extends User implements Serializable {
         this.parent = parent;
     }
 
+    public AnneeScolaire getAnneeScolaire() {
+        return anneeScolaire;
+    }
 
+    public void setAnneeScolaire(AnneeScolaire anneeScolaire) {
+        this.anneeScolaire = anneeScolaire;
+    }
+
+    public Parent getParent() {
+        return parent;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
+    }
 }
