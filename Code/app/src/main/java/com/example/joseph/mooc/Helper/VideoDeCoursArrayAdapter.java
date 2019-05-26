@@ -50,7 +50,7 @@ public class VideoDeCoursArrayAdapter extends RecyclerView.Adapter<VideoDeCoursA
     @Override
     public void onBindViewHolder(final VideoDeCoursArrayAdapter.ViewHolder holder, final int listPosition) {
     //what to do to an item in a the recycler when it appears on screen
-        holder.videoTitre.setText(itemList.get(listPosition).getTitre());
+        holder.videoTitre.setText("Ch." + itemList.get(listPosition).getChapitre() + ": " + itemList.get(listPosition).getTitre());
         holder.videoId.setText(itemList.get(listPosition).getId());
         holder.videoChapitre.setText(itemList.get(listPosition).getChapitre());
         holder.videoURL.setText(itemList.get(listPosition).getUrl());
@@ -76,23 +76,10 @@ public class VideoDeCoursArrayAdapter extends RecyclerView.Adapter<VideoDeCoursA
         @Override
         public void onClick(View view) {
             Log.d("videoarrayadapter", "onClick " + getLayoutPosition() + " " + videoTitre.getText());
-            int pos = getAdapterPosition();
-            Intent intent =new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=3LdRZJja7B8&list=PLolGVm_X3HO3UMdfLe_iTo41C2Hge_PS4"));
-            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=3LdRZJja7B8&list=PLolGVm_X3HO3UMdfLe_iTo41C2Hge_PS4")));
+            Intent intent =new Intent(Intent.ACTION_VIEW, Uri.parse(videoURL.getText().toString()));
 
             Log.d("videoarrayadapter", "URL of the video: " + this.videoURL.getText().toString());
-            //intent.setDataAndType(Uri.parse(this.videoURL.getText().toString()), "video/*");
             view.getContext().startActivity(intent);
-            /*
-            Intent intent = new Intent(view.getContext(), MatiereActivity.class);
-            Matiere m = new Matiere(itemId.getText().toString(), item.getText().toString(), anneeIdOfMatiere.getText().toString());
-            intent.putExtra("matiere", m);
-            */
-            /*
-            intent.putExtra("matiere", item.getText());
-            intent.putExtra("matiere_id", itemId.getText());
-            intent.putExtra("annee_id_of_matiere", anneeIdOfMatiere.getText());
-            */
 
         }
     }

@@ -39,16 +39,14 @@ public class VideoListFragment extends Fragment implements Callback{
     Matiere matiere;
     RecyclerView videoRecycler;
     ArrayList<Video> listVideo = new ArrayList<Video>();
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         Log.d("VideoListFragment", "ONCREATE");
         super.onCreate(savedInstanceState);
         this.calling_activity = (MatiereActivity)getActivity();
         this.matiere = this.calling_activity.matiere;
-        Log.d("VideoListFragment", "ONCREATE:  Calling AsyncTask");
         Log.d("VideoListFragment", "MatiereID : " + this.matiere.getId() + " AnneeId : " + this.matiere.getAnnee_id());
-        //execute asyn task
-
     }
 
     @Nullable
@@ -75,9 +73,8 @@ public class VideoListFragment extends Fragment implements Callback{
 
 
         videoRecycler.setAdapter(matiereArrayAdapter);
-
-
     }
+
     @Override
     public void processData(String code, String data) {
         if(data != null && code.equals("VideoListMatiereTask")){

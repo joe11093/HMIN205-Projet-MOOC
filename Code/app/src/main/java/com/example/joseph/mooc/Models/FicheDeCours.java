@@ -1,38 +1,27 @@
 package com.example.joseph.mooc.Models;
 
 /**
- * Created by josep on 5/25/2019.
+ * Created by josep on 5/26/2019.
  */
 
-public class Video {
+public class FicheDeCours  {
     String id;
     String chapitre;
     String titre;
-    String url;
+    String contenu;
     String matiere_id;
     String annee_id;
-    String fiche_id;
 
-    public Video(){
+    public FicheDeCours(){
 
     }
-    public Video(String id, String chapitre, String titre, String url, String matiere_id, String annee_id) {
+    public FicheDeCours(String id, String chapitre, String titre, String contenu, String matiere_id, String annee_id) {
         this.id = id;
         this.chapitre = chapitre;
         this.titre = titre;
-        this.url = url;
+        this.contenu = contenu;
         this.matiere_id = matiere_id;
         this.annee_id = annee_id;
-    }
-
-    public Video(String id, String chapitre, String titre, String url, String matiere_id, String annee_id, String fiche_id) {
-        this.id = id;
-        this.chapitre = chapitre;
-        this.titre = titre;
-        this.url = url;
-        this.matiere_id = matiere_id;
-        this.annee_id = annee_id;
-        this.fiche_id = fiche_id;
     }
 
     public String getId() {
@@ -59,12 +48,12 @@ public class Video {
         this.titre = titre;
     }
 
-    public String getUrl() {
-        return url;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public String getMatiere_id() {
@@ -81,13 +70,5 @@ public class Video {
 
     public void setAnnee_id(String annee_id) {
         this.annee_id = annee_id;
-    }
-
-    public String getFiche_id() {
-        return fiche_id;
-    }
-
-    public void setFiche_id(String fiche_id) {
-        this.fiche_id = fiche_id;
     }
 }
