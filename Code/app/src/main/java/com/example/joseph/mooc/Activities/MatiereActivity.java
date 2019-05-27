@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.joseph.mooc.Models.QCM;
 import com.example.joseph.mooc.Fragments.FicheDeCoursListFragment;
 import com.example.joseph.mooc.Fragments.QcmListFragment;
 import com.example.joseph.mooc.Fragments.QuestionsReponsesListeFragments;
@@ -32,14 +33,17 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     String annee_id_of_matiere;*/
     public Matiere matiere;
     public FicheDeCours ficheDeCours;
+    public QCM qcm;
     TextView matiereTv;
+    public LinearLayout linearLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matiere);
 
-        Log.d("MatiereActivity", "OnCreate");
+        this.linearLayout = findViewById(R.id.activiteMatiereLayout);
 
         this.matiereTv = findViewById(R.id.testMatiereFromRecycler);
         Bundle bundle = getIntent().getExtras();
@@ -60,8 +64,25 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
 
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("MatiereActivity", "on resume");
+        //addback all elements after they were removed by fragment
+        for(int i = 0; i < this.linearLayout.getChildCount(); i++){
+            Log.d("MatiereActivity", "Number of children in onresume: " + this.linearLayout.getChildCount());
+            View v = linearLayout.getChildAt(i);
+            v.setVisibility(View.VISIBLE);
+        }
+    }
+
     public void setFicheDeCours(FicheDeCours ficheDeCours){
         this.ficheDeCours = ficheDeCours;
+    }
+
+    public void setQCM(QCM qcm){
+        this.qcm = qcm;
     }
     @Override
     public void onBackPressed() {
@@ -97,6 +118,14 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     }
 
     public void toListQuestionsReponses(View view) {
+
+        Log.d("MatiereActivity", "toListQCM");
+        //this.linearLayout.removeAllViews();
+        //remove all children so that the weird menu wont appear in the fragment
+        for(int i = 0; i < this.linearLayout.getChildCount(); i++){
+            View v = linearLayout.getChildAt(i);
+            v.setVisibility(View.GONE);
+        }
         Fragment fragment = new QuestionsReponsesListeFragments();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

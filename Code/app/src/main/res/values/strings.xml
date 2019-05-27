@@ -33,6 +33,12 @@
     <string name="address_parent"> N° street, city, postal code, town, Country</string>
     <string name="psw_parent"> ***********</string>
     <string name="psw_student"> ***********</string>
+    <string name="QCMs">QCMs</string>
+    <string name="submit">Submit</string>
+    <string name="quizCorrect">Congratulations! All your answers are correct</string>
+    <string name = "quizIncorrect">You got %1$d correct answer%2$s out of %3$d. You have made some mistakes but don\'t worry, this is a place to learn.</string>
+    <string name = "finishQuiz">Finish Quiz</string>
+    <string name = "activityQcmTextmessage">You took the "%1$s" QCM and scored %2$s on it.</string>
 
         <string name="signupSuccessMessage">Signup was successful</string>
         <string name="signupFailMessage">Signup was unsuccessful</string>

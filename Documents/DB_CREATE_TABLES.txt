@@ -159,3 +159,8 @@ INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, co
 INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 1", "Reponse 1", "Reponse 2", "Reponse 3", 2);
 
 INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 2", "Reponse 1", "Reponse 2", "Reponse 3", 2); 
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 5", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 7", "Reponse 1", "Reponse 2", "Reponse 3", 1);
