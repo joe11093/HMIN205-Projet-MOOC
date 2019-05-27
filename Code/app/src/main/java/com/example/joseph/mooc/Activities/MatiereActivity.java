@@ -35,12 +35,14 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     public FicheDeCours ficheDeCours;
     public QCM qcm;
     TextView matiereTv;
+    public LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matiere);
 
+        this.linearLayout = findViewById(R.id.activiteMatiereLayout);
         this.matiereTv = findViewById(R.id.testMatiereFromRecycler);
         Bundle bundle = getIntent().getExtras();
         this.matiere = (Matiere) bundle.get("matiere");
@@ -60,6 +62,18 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("MatiereActivity", "on resume");
+        //addback all elements after they were removed by fragment
+        for(int i = 0; i < this.linearLayout.getChildCount(); i++){
+            Log.d("MatiereActivity", "Number of children in onresume: " + this.linearLayout.getChildCount());
+            View v = linearLayout.getChildAt(i);
+            v.setVisibility(View.VISIBLE);
+        }
+    }
+
     public void setFicheDeCours(FicheDeCours ficheDeCours){
         this.ficheDeCours = ficheDeCours;
     }
@@ -69,13 +83,16 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            Log.d("MatiereActivity", "onbackpress if");
             getSupportFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
+            Log.d("MatiereActivity", "onbackpress else");
         }
     }
 
     public void toListVideos(View view) {
+
         Fragment fragment = new VideoListFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -93,6 +110,13 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
 
     public void toListQCM(View view) {
         Log.d("MatiereActivity", "toListQCM");
+        //this.linearLayout.removeAllViews();
+
+        //remove all children so that the weird menu wont appear in the fragment
+        for(int i = 0; i < this.linearLayout.getChildCount(); i++){
+            View v = linearLayout.getChildAt(i);
+            v.setVisibility(View.GONE);
+        }
         Fragment fragment = new QcmListFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

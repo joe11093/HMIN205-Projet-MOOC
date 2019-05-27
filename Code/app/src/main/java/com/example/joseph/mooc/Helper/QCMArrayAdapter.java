@@ -91,15 +91,17 @@ public class QCMArrayAdapter extends RecyclerView.Adapter<QCMArrayAdapter.ViewHo
             mc.setQCM(qcm);
 
             //add activity to DB
+            //removed because i will only add the QCM activity to the DB once the qcm has been taken
+            /*
             SharedPreferences prefs =   view.getContext().getSharedPreferences(GlobalProperties.login_sharedpreferences, view.getContext().MODE_PRIVATE);
             String user_id = prefs.getString("id", null);
             String qcm_id = this.qcmId.getText().toString();
             String type = "startedqcm";
-            String act_text = view.getContext().getResources().getString(R.string.activityQCMTextMessage) + " " + this.qcmTitre.getText().toString();
+            String act_text = view.getContext().getResources().getString(R.string.activityQcmTextmessage) + " " + this.qcmTitre.getText().toString();
             ActivityDB act = new ActivityDB(user_id, type, qcm_id, act_text);
             AddActivityToDBTask addActDb = new AddActivityToDBTask();
             addActDb.execute(act);
-
+            */
             QCMFragment qcmFragment = new QCMFragment();
             mc.replaceFragment(qcmFragment);
 

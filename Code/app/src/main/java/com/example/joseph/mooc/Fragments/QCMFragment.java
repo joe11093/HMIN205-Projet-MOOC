@@ -1,9 +1,14 @@
 package com.example.joseph.mooc.Fragments;
 
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.joseph.mooc.Activities.MatiereActivity;
+import com.example.joseph.mooc.BackgroundTasks.AddActivityToDBTask;
 import com.example.joseph.mooc.BackgroundTasks.GetAllTask;
 import com.example.joseph.mooc.BackgroundTasks.GetQuestionsOfQuizTask;
+import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.Callback;
+import com.example.joseph.mooc.Models.ActivityDB;
 import com.example.joseph.mooc.Models.Matiere;
 import com.example.joseph.mooc.Models.QCM;
 import com.example.joseph.mooc.Models.QuestionsReponsesQCM;
@@ -41,13 +49,13 @@ public class QCMFragment extends Fragment implements Callback {
     MatiereActivity calling_activity;
     Matiere matiere;
     QCM qcm;
-    TextView QCMTitre;
-    TextView QCMid;
+    TextView QCMTitre, TextView, QCMid, QCMtoptext;
     ArrayList<QuestionsReponsesQCM> questionsReponsesQCMs;
     LinearLayout linearLayout;
     ScrollView qcmScrollView;
     ArrayList<RadioGroup> radioGroups;
     ArrayList<Integer> reponsesutil;
+    Button b;
 
 
     @Override
@@ -74,10 +82,7 @@ public class QCMFragment extends Fragment implements Callback {
         View view = inflater.inflate(R.layout.fragment_qcm, container, false);
         this.linearLayout = view.findViewById(R.id.qcmLinearLayout);
         this.qcmScrollView = view.findViewById(R.id.qcmScrollView);
-        //this.QCMTitre = view.findViewById(R.id.qcmQuizTitre);
-        //this.QCMid = view.findViewById(R.id.qcmQuizId);
-        //QCMTitre.setText(this.qcm.getTitre());
-        //QCMid.setText(this.qcm.getId());
+        this.QCMtoptext = view.findViewById(R.id.qcmTopText);
         return view;
     }
 
@@ -94,9 +99,9 @@ public class QCMFragment extends Fragment implements Callback {
             this.radioGroups.add(i, new RadioGroup(getContext()));
         }
         Log.d("QCMFrag", ""+this.questionsReponsesQCMs.size());
-        for(int i = 0; i < this.questionsReponsesQCMs.size(); i++){
+        for(int i = 0; i < this.radioGroups.size(); i++){
 
-            this.radioGroups.get(i).setId(i);
+            this.radioGroups.get(i).setId(View.generateViewId());
             RadioButton[] rb = new RadioButton[3];
             this.radioGroups.get(i).setOrientation(RadioGroup.VERTICAL);
             TextView tv = new TextView(getContext());
@@ -105,17 +110,18 @@ public class QCMFragment extends Fragment implements Callback {
 
             rb[0] = new RadioButton(getContext());
             rb[0].setText(this.questionsReponsesQCMs.get(i).getOptions().get(0));
-            //rb[0].setId(0);
+            rb[0].setChecked(true);
+            rb[0].setId(View.generateViewId());
             this.radioGroups.get(i).addView(rb[0]);
 
             rb[1] = new RadioButton(getContext());
             rb[1].setText(this.questionsReponsesQCMs.get(i).getOptions().get(1));
-            //rb[1].setId(1);
+            rb[1].setId(View.generateViewId());
             this.radioGroups.get(i).addView(rb[1]);
 
             rb[2] = new RadioButton(getContext());
             rb[2].setText(this.questionsReponsesQCMs.get(i).getOptions().get(2));
-            //rb[2].setId(2);
+            rb[2].setId(View.generateViewId());
             this.radioGroups.get(i).addView(rb[2]);
 
             this.linearLayout.addView(this.radioGroups.get(i));
@@ -124,12 +130,13 @@ public class QCMFragment extends Fragment implements Callback {
             //this.linearLayout.addView(rg);
             //this.radioGroups.add(rg);
         }
-        Button b = new Button(getContext());
+        this.b = new Button(getContext());
         b.setText(getResources().getString(R.string.submit));
+        b.setGravity(Gravity.CENTER);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "OnClickQCM", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(view.getContext(), "OnClickQCM", Toast.LENGTH_SHORT).show();
                 correctQCM();
             }
         });
@@ -139,41 +146,79 @@ public class QCMFragment extends Fragment implements Callback {
     }
 
     public void correctQCM(){
+        Log.d("QCMFrag", "correct QCM");
+        int numberCorrectAnswers = 0;
+        int numberIncorrectAnswers = 0;
 
-
-        for(int i = 0; i < radioGroups.size(); i++){
-            int id = radioGroups.get(i).getCheckedRadioButtonId();
-            RadioButton r = getView().findViewById(id);
-            int idx = radioGroups.get(i).indexOfChild(r);
-            this.reponsesutil.add(idx);
-            Log.d("QCMFrag", "position: " + idx);
-        }
-        for(int i = 0; i < radioGroups.size(); i++){
-            this.radioGroups.get(i).setId(i);
-            RadioButton[] rb = new RadioButton[3];
-            this.radioGroups.get(i).setOrientation(RadioGroup.VERTICAL);
-            TextView tv = new TextView(getContext());
-            this.radioGroups.get(i).addView(tv);
-            tv.setText(i + ". " + this.questionsReponsesQCMs.get(i).getQuestion());
-
-            for(int k = 0; i < 3; i++){
-                rb[k] = new RadioButton(getContext());
-                rb[k].setText(this.questionsReponsesQCMs.get(i).getOptions().get(0));
-                //rb[0].setId(0);
-                this.radioGroups.get(i).addView(rb[0]);
+        boolean allcorrect = true;
+        for(int i = 0; i < this.radioGroups.size(); i++){
+            RadioButton checkByUser =  getView().findViewById(radioGroups.get(i).getCheckedRadioButtonId());
+            int posRBChecked = ((RadioGroup)checkByUser.getParent()).indexOfChild(checkByUser);
+            int correctAnswer =  this.questionsReponsesQCMs.get(i).getCorrect_answer();
+            if(posRBChecked == correctAnswer){
+                numberCorrectAnswers++;
+                checkByUser.setTextColor(Color.GREEN);
             }
+            else{
+                numberIncorrectAnswers++;
+                checkByUser.setTextColor(Color.RED);
+                RadioButton correctRB =  (RadioButton) radioGroups.get(i).getChildAt(correctAnswer);
+                correctRB.setTextColor(Color.GREEN);
+                allcorrect = false;
+            }
+            if(allcorrect){
+                this.QCMtoptext.setTextColor(Color.GREEN);
+                this.QCMtoptext.setText(getString(R.string.quizCorrect));
+            }
+            else{
+                String singOrPlur;
+                //prepare string to display
+                if(numberCorrectAnswers == 1)
+                    singOrPlur = "";
+                else
+                    singOrPlur = "s";
 
-            this.radioGroups.get(i).addView(rb[2]);
+                this.QCMtoptext.setTextColor(Color.RED);
+                this.QCMtoptext.setText(getString(R.string.quizIncorrect, numberCorrectAnswers, singOrPlur, this.questionsReponsesQCMs.size()));
+            }
+            qcmScrollView.fullScroll(ScrollView.FOCUS_UP);
+            this.b.setText(getString(R.string.finishQuiz));
 
-            this.linearLayout.addView(this.radioGroups.get(i));
-
-            Log.d("rgchildren", "" + this.radioGroups.get(i).getChildCount());
-            //this.linearLayout.addView(rg);
-            //this.radioGroups.add(rg);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.remove(QCMFragment.this);
+                    transaction.commit();
+                    int mainact_children = calling_activity.linearLayout.getChildCount();
+                    Log.d("QCMFrag", "matiere_activity children count: " + mainact_children);
+                    for(int i = 0; i < mainact_children; i++){
+                        calling_activity.linearLayout.getChildAt(i).setVisibility(View.VISIBLE);
+                    }
+                    fragmentManager.popBackStack();
+                    fragmentManager.popBackStack();
+                }
+            });//end of loop
         }
-        Log.d("QCMFrag", "Size of the array of radiogrous: " + this.radioGroups.size());
+
+        //adding the activity to the db
+        addActivity(numberCorrectAnswers);
+
     }
 
+    public void addActivity(int correct){
+        //add activity to DB
+        SharedPreferences prefs =   getContext().getSharedPreferences(GlobalProperties.login_sharedpreferences, getContext().MODE_PRIVATE);
+        String user_id = prefs.getString("id", null);
+        String qcm_id = this.qcm.getId();
+        String type = "qcm";
+        String score = "" + correct + "/"+this.questionsReponsesQCMs.size();
+        String act_text = getContext().getResources().getString(R.string.activityQcmTextmessage, this.qcm.getTitre(), score);
+        ActivityDB act = new ActivityDB(user_id, type, this.qcm.getId(), act_text);
+        AddActivityToDBTask addActDb = new AddActivityToDBTask();
+        addActDb.execute(act);
+    }
     @Override
     public void processData(String code, String data) {
         if (code.equals("QuestionsOfQuizTask") && data != null) {
