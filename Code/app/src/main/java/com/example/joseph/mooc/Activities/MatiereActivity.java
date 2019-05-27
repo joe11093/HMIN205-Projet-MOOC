@@ -39,6 +39,8 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matiere);
 
+        Log.d("MatiereActivity", "OnCreate");
+
         this.matiereTv = findViewById(R.id.testMatiereFromRecycler);
         Bundle bundle = getIntent().getExtras();
         this.matiere = (Matiere) bundle.get("matiere");

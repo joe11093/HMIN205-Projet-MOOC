@@ -52,7 +52,7 @@ public class VideoDeCoursArrayAdapter extends RecyclerView.Adapter<VideoDeCoursA
     // load data in each row element
     @Override
     public void onBindViewHolder(final VideoDeCoursArrayAdapter.ViewHolder holder, final int listPosition) {
-        //what to do to an item in a the recycler when it appears on screen
+    //what to do to an item in a the recycler when it appears on screen
         holder.videoTitre.setText("Ch." + itemList.get(listPosition).getChapitre() + ": " + itemList.get(listPosition).getTitre());
         holder.videoId.setText(itemList.get(listPosition).getId());
         holder.videoChapitre.setText(itemList.get(listPosition).getChapitre());

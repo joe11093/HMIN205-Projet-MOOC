@@ -106,3 +106,4 @@ public class FicheDeCoursArrayAdapter extends RecyclerView.Adapter<FicheDeCoursA
         }
     }
 }
+

@@ -8,8 +8,10 @@ import android.util.Log;
  */
 
 public final class DBMooc {
-
-    public final static String baseUrl = "http://192.168.1.70/mooc-server/";
+    //tahani's laptop
+    //public final static String baseUrl = "http://192.168.1.70/mooc-server/";
+    //joseph's laptop
+    public final static String baseUrl = "http://192.168.1.47:8011/mooc-server/";
 
     private DBMooc(){
         //constructor

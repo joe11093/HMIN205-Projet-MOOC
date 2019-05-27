@@ -76,34 +76,41 @@ public class MatieresOfUserActivity extends AppCompatActivity implements Callbac
 
         Intent intent;
         int idItem = item.getItemId();
-        Log.d("IDItem: ","id: "+idItem);
+        Log.d("MatieresOfUserActivity","id: "+idItem);
+        Log.d("MatieresOfUserActivity", "item.getItemId(): "+item.getItemId()+"");
 
         switch (item.getItemId()) {
             case R.id.nav_home_student:
-                Log.d("MAatiereUser: ","R.id.nav_home_student_ id: "+idItem);
+                Log.d("MatieresOfUserActivity","R.id.nav_home_student_ id: "+idItem);
                 intent = new Intent(this, HomeStudent.class);
                 intent.putExtra("target", "home");
                 startActivity(intent);
                 break;
             case R.id.nav_profile_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_profile_student id: "+idItem);
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 //        new ProfileStudentFragment()).commit();
                 break;
             case R.id.nav_teaching_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_teaching_student id: "+idItem);
                 intent = new Intent(this, MatieresOfUserActivity.class);
                 startActivity(intent);
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 //       new MatieresOfUserActivity()).commit();
                 break;
             case R.id.nav_activityLog_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_activityLog_student id: "+idItem);
+
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 //        new QuizzFragment()).commit();
                 break;
             case R.id.nav_settings_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_settings_student id: "+idItem);
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 //        new QuizzFragment()).commit();
                 break;
             case R.id.nav_logout_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_logout_student id: "+idItem);
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 //        new LogoutStudentFragment()).commit();
                 break;
@@ -146,7 +153,7 @@ public class MatieresOfUserActivity extends AppCompatActivity implements Callbac
                         JSONObject matiere = jsonArray.getJSONObject(i);
                         this.listMatieres.add(new Matiere(matiere.getString("id"), matiere.getString("titre"),  matiere.getString("annee_id")));
                     }
-                    Log.d("UserProfileActivity", "VideoListMatiereTask: printing first element of returned json: " + listMatieres.get(0).getId() + ": " +  listMatieres.get(0).getTitre());
+                    Log.d("MatieresOfUserActivity", "printing first element of returned json: " + listMatieres.get(0).getId() + ": " +  listMatieres.get(0).getTitre());
 
                     initializeRecyclerView();
                 } catch (JSONException e) {
