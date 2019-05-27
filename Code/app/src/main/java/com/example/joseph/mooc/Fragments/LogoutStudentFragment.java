@@ -1,4 +1,4 @@
-package com.example.joseph.mooc.Activities;
+package com.example.joseph.mooc.Fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.joseph.mooc.Activities.HomeStudent;
+import com.example.joseph.mooc.Activities.MainActivity;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.R;
 

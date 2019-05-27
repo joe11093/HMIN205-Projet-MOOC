@@ -10,6 +10,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.example.joseph.mooc.Fragments.ChildrenFragment;
+import com.example.joseph.mooc.Fragments.HomeParentFragment;
+import com.example.joseph.mooc.Fragments.LogoutParentFragment;
+import com.example.joseph.mooc.Fragments.ProfileParentFragment;
+import com.example.joseph.mooc.Fragments.SubscriptionFragment;
 import com.example.joseph.mooc.R;
 
 public class HomeParent extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{

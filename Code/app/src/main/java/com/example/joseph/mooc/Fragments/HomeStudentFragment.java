@@ -1,4 +1,4 @@
-package com.example.joseph.mooc.Activities;
+package com.example.joseph.mooc.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.joseph.mooc.Activities.MatieresOfUserActivity;
 import com.example.joseph.mooc.R;
 
 public class HomeStudentFragment extends Fragment {

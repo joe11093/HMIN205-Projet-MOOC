@@ -1,4 +1,4 @@
-package com.example.joseph.mooc.Activities;
+package com.example.joseph.mooc.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 
 import com.example.joseph.mooc.R;
 
-public class ProfileParentFragment extends Fragment {
+public class HomeParentFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_profile_parent, container, false);
-        getActivity().setTitle("PROFILE");
+        View view = inflater.inflate(R.layout.fragment_home_parent, container, false);
+        getActivity().setTitle("HOME");
         return view;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.joseph.mooc.Activities;
+package com.example.joseph.mooc.Fragments;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.joseph.mooc.Activities.HomeParent;
+import com.example.joseph.mooc.Activities.MainActivity;
 import com.example.joseph.mooc.R;
 
 public class LogoutParentFragment extends Fragment {

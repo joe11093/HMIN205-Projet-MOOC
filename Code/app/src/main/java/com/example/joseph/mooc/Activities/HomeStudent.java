@@ -2,7 +2,6 @@ package com.example.joseph.mooc.Activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -16,6 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.joseph.mooc.Fragments.ActivityLogFragment;
+import com.example.joseph.mooc.Fragments.HomeStudentFragment;
+import com.example.joseph.mooc.Fragments.LogoutStudentFragment;
+import com.example.joseph.mooc.Fragments.ProfileStudentFragment;
+import com.example.joseph.mooc.Fragments.QuizzFragment;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.R;
 
@@ -93,7 +97,7 @@ public class HomeStudent extends AppCompatActivity implements NavigationView.OnN
                 break;
             case R.id.nav_activityLog_student:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new QuizzFragment()).commit();
+                        new ActivityLogFragment()).commit();
                 break;
             case R.id.nav_settings_student:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

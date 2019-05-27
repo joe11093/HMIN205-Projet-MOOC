@@ -1,4 +1,4 @@
-package com.example.joseph.mooc.Activities;
+package com.example.joseph.mooc.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
