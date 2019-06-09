@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9E6FF">
+
+    <blink xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id = "@+id/abcc "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+    <TextView
+        android:id="@+id/txt_offer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Offers for your child's success!"
+        android:textColor="#DA3700"
+        android:textSize="30sp" />
+    </blink>
+
+    <Button
+        android:id="@+id/btn_offer_1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@+id/abcc"
+        android:layout_marginBottom="-180dp"
+        android:text="Progression formula \n 19,99€/month"
+        android:textSize="20dp"
+        android:background="#FED3B1"
+        tools:ignore="UnknownId" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@+id/btn_offer_1"
+        android:layout_marginBottom="-103dp"
+        android:text="Accompanying Formula \n 29,99€/month"
+        android:background="#FFB275"
+        android:textSize="20dp" />
+
+</RelativeLayout>

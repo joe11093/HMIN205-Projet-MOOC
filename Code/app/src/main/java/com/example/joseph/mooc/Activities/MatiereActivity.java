@@ -1,7 +1,9 @@
 package com.example.joseph.mooc.Activities;
 
 import android.content.Context;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +18,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.joseph.mooc.Helper.CheckConnectivity;
+import com.example.joseph.mooc.Models.QCM;
 import com.example.joseph.mooc.Fragments.FicheDeCoursListFragment;
 import com.example.joseph.mooc.Fragments.QcmListFragment;
 import com.example.joseph.mooc.Fragments.QuestionsReponsesListeFragments;
@@ -24,7 +28,6 @@ import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.FragmentCallback;
 import com.example.joseph.mooc.Models.FicheDeCours;
 import com.example.joseph.mooc.Models.Matiere;
-import com.example.joseph.mooc.Models.QCM;
 import com.example.joseph.mooc.R;
 
 public class MatiereActivity extends AppCompatActivity implements FragmentCallback{
@@ -37,15 +40,22 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     TextView matiereTv;
     public LinearLayout linearLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matiere);
 
         this.linearLayout = findViewById(R.id.activiteMatiereLayout);
+
         this.matiereTv = findViewById(R.id.testMatiereFromRecycler);
         Bundle bundle = getIntent().getExtras();
         this.matiere = (Matiere) bundle.get("matiere");
+
+        registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
 
         /*this.matiere = bundle.getString("matiere");
         this.matiere_id = bundle.getString("matiere_id");
@@ -62,6 +72,7 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
 
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -77,22 +88,20 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     public void setFicheDeCours(FicheDeCours ficheDeCours){
         this.ficheDeCours = ficheDeCours;
     }
+
     public void setQCM(QCM qcm){
         this.qcm = qcm;
     }
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
-            Log.d("MatiereActivity", "onbackpress if");
             getSupportFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
-            Log.d("MatiereActivity", "onbackpress else");
         }
     }
 
     public void toListVideos(View view) {
-
         Fragment fragment = new VideoListFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -109,14 +118,6 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     }
 
     public void toListQCM(View view) {
-        Log.d("MatiereActivity", "toListQCM");
-        //this.linearLayout.removeAllViews();
-
-        //remove all children so that the weird menu wont appear in the fragment
-        for(int i = 0; i < this.linearLayout.getChildCount(); i++){
-            View v = linearLayout.getChildAt(i);
-            v.setVisibility(View.GONE);
-        }
         Fragment fragment = new QcmListFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -125,6 +126,14 @@ public class MatiereActivity extends AppCompatActivity implements FragmentCallba
     }
 
     public void toListQuestionsReponses(View view) {
+
+        Log.d("MatiereActivity", "toListQCM");
+        //this.linearLayout.removeAllViews();
+        //remove all children so that the weird menu wont appear in the fragment
+        for(int i = 0; i < this.linearLayout.getChildCount(); i++){
+            View v = linearLayout.getChildAt(i);
+            v.setVisibility(View.GONE);
+        }
         Fragment fragment = new QuestionsReponsesListeFragments();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

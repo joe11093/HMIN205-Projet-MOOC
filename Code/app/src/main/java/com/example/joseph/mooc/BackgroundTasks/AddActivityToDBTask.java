@@ -32,7 +32,7 @@ public class AddActivityToDBTask extends AsyncTask<ActivityDB, Void, String> {
 
     public AddActivityToDBTask(){
         //this.cb = cb;
-        }
+    }
 
 
     @Override

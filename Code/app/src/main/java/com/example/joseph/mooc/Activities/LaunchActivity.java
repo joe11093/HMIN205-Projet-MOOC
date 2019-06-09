@@ -1,12 +1,15 @@
 package com.example.joseph.mooc.Activities;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.R;
 
@@ -27,15 +30,38 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
+        registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
+
         //check SharedPreferences to see if user is logged in
         SharedPreferences prefs = getSharedPreferences(GlobalProperties.login_sharedpreferences, MODE_PRIVATE);
         String loggedInId = prefs.getString("id", null);
+        String type_user = prefs.getString("type", null);
+
+        Log.d("type_user", "type "+type_user);
+        Log.d("loggedinId", "ID: "+loggedInId);
+
+
+        //type_user = type_user.replace("\n", "");
+        //type_user = type_user.replace("\0", "");
 
         if(loggedInId != null){
             Log.d("loggedinId", loggedInId);
             Toast.makeText(this, "A USER IS LOGGED IN", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, UserProfileActivity.class);
-            startActivity(intent);
+            Intent intent;
+
+            Log.d("LaunchActivity", "size type: "+"student".length());
+            Log.d("LaunchActivity","size type prefs: "+type_user.trim().length());
+
+            if(type_user.contains("student")){
+                intent = new Intent(this, HomeStudent.class);
+                startActivity(intent);
+            }else if(type_user.equals("parent")){
+                intent = new Intent(this, HomeParent.class);
+                startActivity(intent);
+            }
         }
         else{
             Toast.makeText(this, "NO ONE IS LOGGED IN", Toast.LENGTH_LONG).show();

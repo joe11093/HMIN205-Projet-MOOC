@@ -1,12 +1,15 @@
 package com.example.joseph.mooc.Activities;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       /* registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));*/
     }
 
 

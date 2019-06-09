@@ -241,7 +241,7 @@ public class QCMFragment extends Fragment implements Callback {
                     }
                     Log.d("QCMFrag", "printing first element of Question List: " + questionsReponsesQCMs.get(0).getId() + ": " + questionsReponsesQCMs.get(0).getQuestion());
 
-                   initQCM();
+                    initQCM();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -250,3 +250,4 @@ public class QCMFragment extends Fragment implements Callback {
         }
     }
 }
+

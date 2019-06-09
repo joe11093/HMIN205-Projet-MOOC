@@ -1,16 +1,27 @@
 package com.example.joseph.mooc.Activities;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.example.joseph.mooc.BackgroundTasks.GetMatiereOfAnneeScolaireTask;
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Helper.MatiereArrayAdapter;
 import com.example.joseph.mooc.Interfaces.Callback;
@@ -23,7 +34,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MatieresOfUserActivity extends AppCompatActivity implements Callback{
+public class MatieresOfUserActivity extends AppCompatActivity implements Callback, NavigationView.OnNavigationItemSelectedListener{
+
+    private DrawerLayout drawer;
+
     RecyclerView recyclerView;
     SharedPreferences prefs;
     String annee_id;
@@ -32,7 +46,13 @@ public class MatieresOfUserActivity extends AppCompatActivity implements Callbac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle("TEACHING");
         setContentView(R.layout.activity_matieres_of_user);
+
+        registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
 
         prefs = getSharedPreferences(GlobalProperties.login_sharedpreferences, MODE_PRIVATE);
         String loggedIn_annee_id = prefs.getString("annee_id", null);
@@ -44,7 +64,77 @@ public class MatieresOfUserActivity extends AppCompatActivity implements Callbac
         getMatiereOfAnneeScolaireTask.execute(loggedIn_annee_id);
 
 
+        Toolbar toolbar = findViewById(R.id.toolbar_matiere);
+        setSupportActionBar(toolbar);
 
+        drawer = findViewById(R.id.drawer_layout_matiere);
+        NavigationView navigationView = findViewById(R.id.nav_view_matiere);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        Intent intent;
+        int idItem = item.getItemId();
+        Log.d("MatieresOfUserActivity","id: "+idItem);
+        Log.d("MatieresOfUserActivity", "item.getItemId(): "+item.getItemId()+"");
+
+        switch (item.getItemId()) {
+            case R.id.nav_home_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_home_student_ id: "+idItem);
+                intent = new Intent(this, HomeStudent.class);
+                intent.putExtra("target", "home");
+                startActivity(intent);
+                break;
+            case R.id.nav_profile_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_profile_student id: "+idItem);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                //        new ProfileStudentFragment()).commit();
+                break;
+            case R.id.nav_teaching_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_teaching_student id: "+idItem);
+                intent = new Intent(this, MatieresOfUserActivity.class);
+                startActivity(intent);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                //       new MatieresOfUserActivity()).commit();
+                break;
+            case R.id.nav_activityLog_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_activityLog_student id: "+idItem);
+
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                //        new QuizzFragment()).commit();
+                break;
+            case R.id.nav_settings_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_settings_student id: "+idItem);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                //        new QuizzFragment()).commit();
+                break;
+            case R.id.nav_logout_student:
+                Log.d("MatieresOfUserActivity","R.id.nav_logout_student id: "+idItem);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                //        new LogoutStudentFragment()).commit();
+                break;
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public void initializeRecyclerView(){
@@ -71,7 +161,7 @@ public class MatieresOfUserActivity extends AppCompatActivity implements Callbac
                         JSONObject matiere = jsonArray.getJSONObject(i);
                         this.listMatieres.add(new Matiere(matiere.getString("id"), matiere.getString("titre"),  matiere.getString("annee_id")));
                     }
-                    Log.d("UserProfileActivity", "VideoListMatiereTask: printing first element of returned json: " + listMatieres.get(0).getId() + ": " +  listMatieres.get(0).getTitre());
+                    Log.d("MatieresOfUserActivity", "printing first element of returned json: " + listMatieres.get(0).getId() + ": " +  listMatieres.get(0).getTitre());
 
                     initializeRecyclerView();
                 } catch (JSONException e) {

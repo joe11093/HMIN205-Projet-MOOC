@@ -103,7 +103,7 @@ public class GetAllTask extends AsyncTask<String, Void, String> {
     {
         Log.d("getalltask", "staring onPostExecute");
         super.onPostExecute(s);
-        Log.d("getalltask", "returened data: " + s);
+        Log.d("getalltask", "staring onPostExecute");
         this.cb.processData("getall-"+type, s);
     }
 }

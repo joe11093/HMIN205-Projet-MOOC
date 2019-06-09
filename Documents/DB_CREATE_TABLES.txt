@@ -126,7 +126,7 @@ INSERT INTO utilisateur (firstname, lastname, dateofbirth, email, password, city
 INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (1,'4eme');
 INSERT INTO annee_scolaire(id, annee_scolaire) VALUES (2,'3eme');
 
-INSERT INTO matiere(id, titre) VALUES (1, "Francais");
+INSERT INTO matiere(id, titre) VALUES (1, "Français");
 INSERT INTO matiere(id, titre) VALUES (2, "Anglais");
 INSERT INTO matiere(id, titre) VALUES (3, "Histoire");
 
@@ -137,10 +137,11 @@ INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (4, 1, 2);
 INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (5, 2, 2);
 INSERT INTO matiere_annee(id, matiere_id, annee_id) VALUES (6, 3, 2);
 
-INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_id, annee_id) VALUES (1, 1, " La phrase simple et la phrase complexe", "<h2>L'organisation de la phrase simple et de la phrase complexe</h2><p>La phrase simple contient un seul verbe conjuguÃ©, donc une seule proposition (= partie de phrase sâ€™organisant autour dâ€™un verbe conjuguÃ©). Celle-ci est indÃ©pendante car elle ne dÃ©pend d'aucune autre proposition et inversement.</p><p>Exemple :<br />Lancelot est un hÃ©ros cÃ©lÃ¨bre des romans de chevalerie.<br />Cette phrase est une phrase simple. Cependant, elle ne se limite pas au sujet et au verbe, plusieurs complÃ©ments peuvent Ãªtre ajoutÃ©s.La phrase complexe contient plusieurs verbes conjuguÃ©s, donc plusieurs propositions.</p><p>Exemple :<br />Lancelot est un hÃ©ros cÃ©lÃ¨bre des romans de chevalerie.<br />Cette phrase est une phrase simple. Cependant, elle ne se limite pas au sujet et au verbe, plusieurs complÃ©ments peuvent Ãªtre ajoutÃ©s.La phrase complexe contient plusieurs verbes conjuguÃ©s, donc plusieurs propositions.</p>",1,1);
+
+INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_id, annee_id) VALUES (1, 1, " La phrase simple et la phrase complexe", "<h2>L'organisation de la phrase simple et de la phrase complexe</h2><p>La phrase simple contient un seul verbe conjugué, donc une seule proposition (= partie de phrase s’organisant autour d’un verbe conjugué). Celle-ci est indépendante car elle ne dépend d'aucune autre proposition et inversement.</p><p>Exemple :<br />Lancelot est un héros célèbre des romans de chevalerie.<br />Cette phrase est une phrase simple. Cependant, elle ne se limite pas au sujet et au verbe, plusieurs compléments peuvent être ajoutés.La phrase complexe contient plusieurs verbes conjugués, donc plusieurs propositions.</p><p>Exemple :<br />Lancelot est un héros célèbre des romans de chevalerie.<br />Cette phrase est une phrase simple. Cependant, elle ne se limite pas au sujet et au verbe, plusieurs compléments peuvent être ajoutés.La phrase complexe contient plusieurs verbes conjugués, donc plusieurs propositions.</p>",1,1);
 
 INSERT INTO fiche_de_cours(id, chapitre, titre, contenu, matiere_id, annee_id) VALUES (2, 2, " La phrase verbale et la phrase non verbale", "<h2>La phrase verbale</h2><p>On appelle phrase verbale une phrase qui s'organise autour d'un verbe. On appelle ce verbe le noyau de la phrase.
-</p><p><b>Exemple:</b> Il a neigÃ© aujourd'hui.</p><p>Une phrase verbale peut comporter plusieurs noyaux verbaux.</p><p><b>Exemple:</b> Il a neigÃ© aujourd'hui, mais la mÃ©tÃ©o annonce qu'il fera beau demain.</p><h2>La phrase non verbale</h2><p>On appelle phrase non verbale une phrase qui est organisÃ©e autour d'autres Ã©lÃ©ments que le verbe. Son noyau peut Ãªtre de diffÃ©rentes natures.</p><br /><p><b>Un nom</b><br />On parle alors de phrase nominale.</p>",1,2);
+</p><p><b>Exemple:</b> Il a neigé aujourd'hui.</p><p>Une phrase verbale peut comporter plusieurs noyaux verbaux.</p><p><b>Exemple:</b> Il a neigé aujourd'hui, mais la météo annonce qu'il fera beau demain.</p><h2>La phrase non verbale</h2><p>On appelle phrase non verbale une phrase qui est organisée autour d'autres éléments que le verbe. Son noyau peut être de différentes natures.</p><br /><p><b>Un nom</b><br />On parle alors de phrase nominale.</p>",1,2);
 
 INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Le Fantastique", "https://www.youtube.com/watch?v=EdlJPmSmzBw", 1,1);
 INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (2, "Sunjonctif en Francais: Conjugation", "https://www.youtube.com/watch?v=50wuiuvRBcQ", 1,1);
@@ -159,6 +160,23 @@ INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, co
 INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 4", "Reponse 1", "Reponse 2", "Reponse 3", 1);
 
 INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 5", "Reponse 1", "Reponse 2", "Reponse 3", 2);
+
+INSERT INTO video_de_cours(chapitre, titre, url, matiere_id,annee_id) VALUES (1, "Comparatif de supériorité en anglais", "https://www.youtube.com/watch?v=K_G4oBl7_dw", 2, 1);
+
+INSERT INTO qcm(titre, type_ref, matiere_id, annee_id, ref) VALUES("Quiz sur les phrases", "fiche", 1, 1, 1);
+INSERT INTO qcm(titre, type_ref, matiere_id, annee_id, ref) VALUES("Quiz sur le Fantastique", "video", 1, 1,  1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 1", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 2", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 3", "Reponse 1", "Reponse 2", "Reponse 3", 1);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 1", "Reponse 1", "Reponse 2", "Reponse 3", 2);
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 2", "Reponse 1", "Reponse 2", "Reponse 3", 2); 
+
+INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(1, "Question 5", "Reponse 1", "Reponse 2", "Reponse 3", 1);
 
 INSERT INTO questionsreponsesqcm(qcm_id, question, option1, option2, option3, correct_answer)values(2, "Question 6", "Reponse 1", "Reponse 2", "Reponse 3", 3);
 

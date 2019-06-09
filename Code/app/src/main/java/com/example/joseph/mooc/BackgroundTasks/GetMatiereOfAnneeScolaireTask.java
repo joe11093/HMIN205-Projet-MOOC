@@ -43,6 +43,7 @@ public class GetMatiereOfAnneeScolaireTask extends AsyncTask<String, Void, Strin
         this.id = strings[0];
         Log.d("VideoListMatiereTask", "Received annee ID: " + this.id);
         String data = "";
+        Log.d("GetMatieresTask", "annee_id: " + this.id);
         if (this.id != null) {
             try {
                 URL url = new URL(path);
@@ -87,7 +88,7 @@ public class GetMatiereOfAnneeScolaireTask extends AsyncTask<String, Void, Strin
             } catch (IOException e) {
                 e.printStackTrace();
             }// catch (JSONException e) {
-             //   e.printStackTrace();
+            //   e.printStackTrace();
             //}
 
         }

@@ -57,7 +57,7 @@ public class FicheDeCoursListFragment extends Fragment implements Callback {
         this.ficheDeCoursRecycler = view.findViewById(R.id.recyclerCours);
         Log.d("CoursListFragment", "OnCreateView: Length of listFicheDeCours" + this.listFicheDeCours.size());
         FicheDeCoursListMatiereAnneeAsyncTask task = new FicheDeCoursListMatiereAnneeAsyncTask(this);
-            task.execute(this.matiere);
+        task.execute(this.matiere);
 
 
         return view;

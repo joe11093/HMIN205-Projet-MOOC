@@ -128,9 +128,8 @@ public class SignupBackgroundTask extends AsyncTask<User, Void, String> {
             }
 
         }
-        Log.d("SignupTask", "returnNull");
+        Log.d("logintask", "returnNull");
         return null;
     }
 
 }
-

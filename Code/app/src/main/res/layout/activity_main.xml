@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.joseph.mooc.Activities.MainActivity"
-    tools:layout_editor_absoluteY="81dp">
+    android:background="#E9E6FF"
+    tools:context="com.example.joseph.mooc.Activities.MainActivity">
 
 
     <TextView
@@ -23,32 +23,44 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
         android:text="@string/slogan"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="340dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnHomeLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/success"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnHomeLogin"
         style="@android:style/Widget.Button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="224dp"
         android:onClick="login"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/btnHomeSignup"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+        style="@android:style/Widget.Button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:onClick="signup"
         android:text="@string/signup"
         app:layout_constraintStart_toStartOf="@+id/btnHomeLogin"
@@ -56,37 +68,14 @@
 
     <Button
         android:id="@+id/btnHomeSampleVideo"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+        style="@android:style/Widget.Button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
         android:onClick="viewSampleVideo"
         android:text="View a Video"
-        app:layout_constraintBottom_toTopOf="@+id/btnProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnProfile"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="73dp"
-        android:text="Profile"
-        app:layout_constraintStart_toStartOf="@+id/btnHomeSampleVideo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnHomeSignup" />
-
-    <Button
-        android:id="@+id/btnCours"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:text="Mes Matieres"
-        android:onClick="cours"
-        app:layout_constraintStart_toStartOf="@+id/btnProfile"
-        app:layout_constraintTop_toBottomOf="@+id/btnProfile" />
-
 
 </android.support.constraint.ConstraintLayout>

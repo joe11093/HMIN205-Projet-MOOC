@@ -14,32 +14,47 @@
     <string name="student">Student</string>
     <string name="btnNext">Next</string>
     <string name="welcomeTitle">Welcome to MOOC</string>
-    <string name="slogan">For a successful academic life</string>
+    <string name="slogan">   For a successful academic life</string>
     <string name="login">Log In</string>
     <string name="signup">Sign Up</string>
     <string name="logout">Log out</string>
     <string name="logoutMessage">You were logged out</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_home__parent">Home</string>
+    <string name="nav_header_title">pseudonyme</string>
+    <string name="nav_header_subtitle">pseudonyme@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home_parent">HomeParent</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="email_parent">pseudonyme@mooc.com</string>
+    <string name="phone_parent">+33 6 12 34 56 78</string>
+    <string name="address_parent"> N° street, city, postal code, town, Country</string>
+    <string name="psw_parent"> ***********</string>
+    <string name="psw_student"> ***********</string>
+    <string name="QCMs">QCMs</string>
+    <string name="submit">Submit</string>
+    <string name="quizCorrect">Congratulations! All your answers are correct</string>
+    <string name="quizIncorrect">You got %1$d correct answer%2$s out of %3$d. You have made some mistakes but don\'t worry, this is a place to learn.</string>
+    <string name="finishQuiz">Finish Quiz</string>
+    <string name="activityQcmTextmessage">You took the "%1$s" QCM and scored %2$s on it.</string>
+    <string name="activitylog">Your activity log</string>
+    <string name="noconnection">No Connection detected. Please connect to use the app.</string>
+    <string name="goToLog">View my History</string>
+
     <string name="signupSuccessMessage">Signup was successful</string>
     <string name="signupFailMessage">Signup was unsuccessful</string>
     <string name="afterSignupLoginMessage">Signin with your newly created account</string>
     <string name="addStudents">Add Students</string>
-    <string name="ficheDeCours">Fiche de Cours</string>
-    <string name="fichesDeCours">Fiches de Cours</string>
-    <string name="fichesDeRevision">Fiches de Revision</string>
+    <string name="fichesDeCours">Fiche de Cours</string>
     <string name="presentations">Presentations Videos</string>
+    <string name="fichesDeRevision">Fichs de Revision</string>
     <string name="QCM">QCM</string>
-    <string name="QCMs">QCMs</string>
     <string name="questions_reponse">Questions-Reponses</string>
     <string name="btnToQCM">Pass the Quiz</string>
     <string name="activityVideoTextMessage">You watched the video</string>
     <string name="activityFicheTextMessage">You read the document</string>
-    <string name="submit">Submit</string>
-    <string name="quizCorrect">Congratulations! All your answers are correct</string>
-    <string name = "quizIncorrect">You got %1$d correct answer%2$s out of %3$d. You have made some mistakes but don\'t worry, this is a place to learn.</string>
-    <string name = "finishQuiz">Finish Quiz</string>
-    <string name = "activityQcmTextmessage">You took the "%1$s" QCM and scored %2$s on it.</string>
-
-
     <!-- for the theme -->
     <!-- Home -->
     <string name="home_tab_xml">XML</string>

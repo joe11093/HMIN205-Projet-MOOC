@@ -1,5 +1,12 @@
-<!-- @formatter:off -->
 <resources>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+
     <!-- Default App Theme -->
     <style name="AppTheme" parent="BaseTheme">
         <!-- API specific attributes 21+ -->

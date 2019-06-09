@@ -1,7 +1,9 @@
 package com.example.joseph.mooc.Activities;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +18,7 @@ import com.example.joseph.mooc.BackgroundTasks.CheckObjectExistInDbAsyncTask;
 import com.example.joseph.mooc.BackgroundTasks.GetAllTask;
 import com.example.joseph.mooc.BackgroundTasks.SignupBackgroundTask;
 import com.example.joseph.mooc.Helper.AnneeScolaireArrayAdapter;
+import com.example.joseph.mooc.Helper.CheckConnectivity;
 import com.example.joseph.mooc.Helper.GlobalProperties;
 import com.example.joseph.mooc.Interfaces.Callback;
 import com.example.joseph.mooc.Models.AnneeScolaire;
@@ -40,6 +43,11 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         Log.d("StudentRegistration", "In oncreate of register student activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_student);
+
+       /* registerReceiver(
+                new CheckConnectivity(),
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));*/
 
         this.fname = findViewById(R.id.studentSignupFirstName);
         this.lname = findViewById(R.id.studentSignupLasttName);
@@ -100,7 +108,6 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
             //Log.d("afterexecute", "afterexecute");
         }
 
-
     }
 
     public void fillSpinner(String spinner_type){
@@ -152,6 +159,9 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
                     //execute signup task
                     SignupBackgroundTask signupBackgroundTask = new SignupBackgroundTask(this);
                     signupBackgroundTask.execute(student);
+
+                    Intent intent = new Intent(this, LaunchActivity.class);
+                    startActivity(intent);
                 }
                 else{
                     //student with parent
@@ -162,7 +172,7 @@ public class RegisterStudentActivity extends AppCompatActivity  implements Callb
         }
 
         //if result is from signup task
-        else if(code.equals("SignupTask")){
+        else if(code.equals("signuptask")){
             Log.d("StudentRegistration", "process data: Signup task");
             Log.d("StudentRegistration", "code= " + code + " data = " + data);
             if(data.equals("true")){

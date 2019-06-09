@@ -28,6 +28,7 @@ public class ActivityDB {
         this.activite_text = activite_text;
     }
 
+
     public ActivityDB(String id, String user_id, String type, String ref, String date, String time, String activite_text) {
         this.id = id;
         this.user_id = user_id;

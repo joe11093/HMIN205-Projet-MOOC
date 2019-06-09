@@ -33,4 +33,3 @@ public class Login implements Serializable {
         this.password = password;
     }
 }
-
